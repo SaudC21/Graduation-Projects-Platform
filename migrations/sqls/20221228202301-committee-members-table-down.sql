@@ -1,1 +1,1 @@
-DROP TABLE IF EXISTS committe_members;
+DROP TABLE IF EXISTS committee_members;
