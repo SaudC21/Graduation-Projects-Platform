@@ -3,6 +3,7 @@ CREATE TABLE IF NOT EXISTS supervisors (
    first_name VARCHAR(50),
    last_name VARCHAR(50),
    email VARCHAR(50),
+   password_digest VARCHAR(150),
    phone_num VARCHAR(50),
    major VARCHAR(50),
    interests VARCHAR(50)[]
