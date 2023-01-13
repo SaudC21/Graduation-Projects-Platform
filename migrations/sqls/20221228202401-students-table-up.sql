@@ -2,6 +2,7 @@ CREATE TABLE IF NOT EXISTS students (
    uid INTEGER NOT NULL,
    first_name VARCHAR(50),
    last_name VARCHAR(50),
+   gpa NUMERIC(3, 2),
    email VARCHAR(50),
    phone_num VARCHAR(20),
    major VARCHAR(50),

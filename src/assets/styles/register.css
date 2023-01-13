@@ -36,10 +36,11 @@ label {
 }
 
 .login-form {
-   width: 80%;
+   width: 40%;
 }
 
 input[type=text], input[type=password] {
+   font-size: 14px;
    width: 100%;
    padding: 12px 20px;
    margin: 8px 0;
@@ -62,6 +63,7 @@ button {
    width: 25%;
    float: right;
    border-radius: 8px;
+   font-size: larger;
 }
 
 .register-button {
@@ -126,8 +128,4 @@ footer {
 .fcit {
    text-decoration: none;
    color: black;
-}
-
-@media only screen and (max-width: 1000px) {
-   
 }
