@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+h1 {
+  font-family: "Noto Kufi Arabic", sans-serif;
+  padding-bottom: 4%;
+}
+
+label {
+  font-family: "Noto Kufi Arabic", sans-serif;
+  font-size: 18px;
+}
+
+/* Form Side */
+.form-side {
+  min-width: 45%;
+  width: 100%;
+  align-self: center;
+  border: #04aa6d 1px solid;
+}
+
+.form-container {
+  border: #04aa6d 1px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.login-form {
+  width: 80%;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  text-align: right;
+  background-color: #eee;
+  border-radius: 15px;
+  margin-bottom: 5.85%;
+}
+
+button {
+  background-color: #04aa6d;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 1.5%;
+  border: none;
+  cursor: pointer;
+  width: 25%;
+  float: right;
+  border-radius: 8px;
+}
+
+.register-button {
+  background-color: #3699ff;
+}
+
+.login-button {
+  background-color: #1bc5bd;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.form-div {
+  text-align: right;
+  padding: 6%;
+}
+
+#logo {
+  width: 55%;
+  height: 12%;
+  display: block;
+  padding-bottom: 8%;
+}
+
+.button-box {
+  display: flex;
+  justify-content: right;
+  width: 100%;
+}
+
+/* Picture Side */
+#aside-pic {
+  width: 100%;
+  max-width: 700px;
+  height: 100%;
+}
+
+aside {
+  background-image: url("../../../assets/media/college.jpg");
+  background-size: cover;
+  border: #04aa6d 5px solid;
+  height: 100%;
+  width: 100%;
+  max-width: 800px;
+}
+
+footer {
+  text-align: center;
+  width: 96.1%;
+  background-color: #eee;
+  color: rgb(0, 0, 0);
+  padding: 20px;
+}
+
+.pass-reset {
+  float: left;
+}
+
+.fcit {
+  text-decoration: none;
+  color: black;
+}
+
+@media only screen and (max-width: 1000px) {
+}
