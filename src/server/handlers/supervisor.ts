@@ -5,40 +5,50 @@ import { Supervisor } from "../../database/Schema/supervisor";
 const store = new SupervisorStore();
 
 const show = async (req: Request, res: Response) => {
-   const supervisorRecord = await store.show();
-   res.send(supervisorRecord);
+   try {
+      const supervisorRecord = await store.show();
+      res.send(supervisorRecord);
+   } catch (err) { res.send(err) }
 }
 
 const index = async (req: Request, res: Response) => {
-    const uid = parseInt(req.params['uid']);
-    const supervisorRecord = await store.index(uid);
-    res.send(supervisorRecord);
+   try {
+      const uid = parseInt(req.params['uid']);
+      const supervisorRecord = await store.index(uid);
+      res.send(supervisorRecord);
+   } catch (err) { res.send(err) }
 }
 
 const create = async (req: Request, res: Response) => {
-   const supervisor: Supervisor = {
-    uid: req.body.uid,
-    first_name: req.body.first_name,
-    last_name: req.body.last_name,
-    email: req.body.email,
-    password_digest: req.body.password_digest,
-    phone_number: req.body.phone_number,
-    major: req.body.major,
-    interests: req.body.interests
-   }
-   const supervisorRecord = await store.insert(supervisor);
-   res.send('inshallah its been added');
+   try {
+      const supervisor: Supervisor = {
+         uid: req.body.uid,
+         first_name: req.body.first_name,
+         last_name: req.body.last_name,
+         email: req.body.email,
+         password_digest: req.body.password_digest,
+         phone_number: req.body.phone_number,
+         major: req.body.major,
+         interests: req.body.interests
+      }
+      const supervisorRecord = await store.insert(supervisor);
+      res.send('inshallah its been added');
+   } catch (err) { res.send(err) }
 }
 
 const update = async (req: Request, res: Response) => {
-   const supervisorRecord = await store.update(req.body, req.params['uid']);
-   res.send('inshallah its been updated');
+   try {
+      const supervisorRecord = await store.update(req.body, req.params['uid']);
+      res.send('inshallah its been updated');
+   } catch (err) { res.send(err) }
 }
 
 const destory = async (req: Request, res: Response) => {
-   const uid = parseInt(req.params["uid"]);
-   await store.delete(uid);
-   res.send('inshallah its been deleted');
+   try {
+      const uid = parseInt(req.params["uid"]);
+      await store.delete(uid);
+      res.send('inshallah its been deleted');
+   } catch (err) { res.send(err) }
 }
 
 export const supervisorRoutes = (app: Application) => {
