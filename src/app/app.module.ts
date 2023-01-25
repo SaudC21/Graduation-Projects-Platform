@@ -11,10 +11,11 @@ import { MainPageComponent } from './components/main-page/main-page.component';
 import { NavbarComponent } from './components/navbar/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar/sidebar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { MainRoutingModule } from './components/main-page/main-routing.module';
 
 @NgModule({
   declarations: [AppComponent, LoginPageComponent, RegisterPageComponent, MainPageComponent, NavbarComponent, SidebarComponent, DashboardComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, MainRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
