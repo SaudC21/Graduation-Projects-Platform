@@ -8,24 +8,16 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
+  },
+  {
+    path: 'login',
     component: LoginPageComponent,
   },
   {
     path: 'register',
-    component: RegisterPageComponent
-  },
-  {
-    path: 'dashboard',
-    component: MainPageComponent,
-    children: [{
-      path: '',
-      component: DashboardComponent,
-      outlet: 'test'
-    }, {
-      path: 'test',
-      component: LoginPageComponent,
-      outlet: 'test',
-    }]
+    component: RegisterPageComponent,
   },
 ];
 
@@ -33,4 +25,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

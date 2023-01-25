@@ -4,6 +4,7 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
 import { LoginPageComponent } from '../login-page/login-page.component';
 import { MainPageComponent } from './main-page.component';
 
+// Add components here to enable main routing
 const routes: Routes = [
   {
     path: 'main',
