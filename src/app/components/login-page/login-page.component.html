@@ -8,13 +8,13 @@
                 <div class="form-div">
                     <h1>منصة مشاريع التخرج</h1>
                     <label for="uname" class="label"><b>الرقم الجامعي</b></label>
-                    <input type="text" placeholder="ادخل الرقم الجامعي" name="uname" required>
+                    <input type="text" placeholder="ادخل الرقم الجامعي" name="uname" required [(ngModel)]="uid">
                     <label for="psw" class="label"><b>كلمة المرور</b></label>
                     <a href="" class="pass-reset">هل نسيت كلمة المرور؟</a>
-                    <input type="password" placeholder="ادخل كلمة المرور" name="psw" required>
+                    <input type="password" placeholder="ادخل كلمة المرور" name="psw" required [(ngModel)]="password">
                     <div class="button-box">
-                        <button class="register-button" type="submit" routerLink="/register">إنشاء حساب</button>
-                        <button class="login-button" type="submit" routerLink="/main">تسجيل الدخول</button>
+                        <button class="register-button" type="button" routerLink="/register">إنشاء حساب</button>
+                        <button class="login-button" type="button" (click)="onLogin()">تسجيل الدخول</button>
                     </div>
                 </div>
             </form>

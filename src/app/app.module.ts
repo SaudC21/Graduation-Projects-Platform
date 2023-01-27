@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,8 +15,22 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MainRoutingModule } from './components/main-page/main-routing.module';
 
 @NgModule({
-  declarations: [AppComponent, LoginPageComponent, RegisterPageComponent, MainPageComponent, NavbarComponent, SidebarComponent, DashboardComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, MainRoutingModule],
+  declarations: [
+    AppComponent,
+    LoginPageComponent,
+    RegisterPageComponent,
+    MainPageComponent,
+    NavbarComponent,
+    SidebarComponent,
+    DashboardComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    MainRoutingModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
