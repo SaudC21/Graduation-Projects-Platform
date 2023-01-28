@@ -24,15 +24,13 @@ export class StudentStore {
   async authenticate(uid: number, password: string, res: Response) {
     await this.connect().then(
       await this.index(uid).then((student: any): any => {
-        console.log(student);
-
         if (bcrypt.compareSync(password + pepper, student.password_digest)) {
           let token = jwt.sign(
             { user: student },
             process.env['TOKEN_SECRET'] as string,
-            { expiresIn: 60 }
+            { expiresIn: 60 * 60 * 2 }
           );
-          res.send(token);
+          res.status(200).json({ token: token, expiresIn: 60 * 60 * 2 });
         } else {
           console.log(`wrong password: ${student.password_digest}`);
           res.status(401);

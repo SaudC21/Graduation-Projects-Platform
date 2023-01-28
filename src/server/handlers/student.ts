@@ -1,8 +1,17 @@
 import { NextFunction, Request, Response, Application } from 'express';
+import * as expressJWT from 'express-jwt';
+// @ts-ignore
+import * as dotenv from 'dotenv';
 import { StudentStore } from '../../database/models/student';
 import { Student } from '../../database/Schema/student';
 
 const store = new StudentStore();
+const TOKEN_SECRET: any = process.env['TOKEN_SECRET'];
+
+const isAuthenticated = expressJWT.expressjwt({
+  secret: TOKEN_SECRET,
+  algorithms: ['HS256'],
+});
 
 const show = async (req: Request, res: Response) => {
   try {
@@ -69,7 +78,12 @@ const destory = async (req: Request, res: Response) => {
   }
 };
 
+const hello = async (req: Request, res: Response) => {
+  res.send('sup');
+};
+
 export const studentRoutes = (app: Application) => {
+  app.get('/hello', hello);
   app.post('/student', create);
   app.post('/student/authenticate', authenticate);
   app.put('/student/:uid', update);

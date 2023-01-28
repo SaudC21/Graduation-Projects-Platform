@@ -34,3 +34,16 @@ app.get('/', async (req: express.Request, res: express.Response) => {
     'Use committee, student, supervisor, project, or coordinator routes with any of the CRUD operations (Get, Put, Delte, Show, and Index)'
   );
 });
+
+app.use(function (
+  err: any,
+  req: express.Request,
+  res: express.Response,
+  next: express.NextFunction
+) {
+  if (err.name === 'UnauthorizedError') {
+    res.status(401).send('invalid token');
+  } else {
+    next(err);
+  }
+});
