@@ -44,11 +44,7 @@ const create = async (req: Request, res: Response) => {
 
 const authenticate = async (req: Request, res: Response) => {
   try {
-    const studentRecord = await store.authenticate(
-      parseInt(req.body.uid),
-      req.body.password
-    );
-    res.send(studentRecord);
+    await store.authenticate(parseInt(req.body.uid), req.body.password, res);
   } catch (err) {
     res.send(err);
   }

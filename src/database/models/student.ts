@@ -2,6 +2,9 @@ import * as mongoose from 'mongoose';
 import { studentSchema, Student } from '../Schema/student';
 import { environment } from '../../environments/environment';
 import * as bcrypt from 'bcrypt';
+import { Response } from 'express';
+import * as jwt from 'jsonwebtoken';
+
 //@ts-ignore
 import * as dotenv from 'dotenv';
 dotenv.config();
@@ -18,24 +21,25 @@ export class StudentStore {
     await mongoose.connect(environment.MONGODB_URI);
   }
 
-  async authenticate(uid: number, password: string) {
-    await this.connect();
-    const student: Student = (await this.index(uid)) as Student;
-    if (student == null) {
-      throw new Error('Could not find student with uid');
-    }
+  async authenticate(uid: number, password: string, res: Response) {
+    await this.connect().then(
+      await this.index(uid).then((student: any): any => {
+        console.log(student);
 
-    console.log(password + pepper);
-
-    if (bcrypt.compareSync(password + pepper, student.password_digest)) {
-      console.log(`correct password`);
-
-      return student;
-    } else {
-      console.log(`wrong password: ${student.password_digest}`);
-
-      throw new Error('Invalid password');
-    }
+        if (bcrypt.compareSync(password + pepper, student.password_digest)) {
+          let token = jwt.sign(
+            { user: student },
+            process.env['TOKEN_SECRET'] as string,
+            { expiresIn: 60 }
+          );
+          res.send(token);
+        } else {
+          console.log(`wrong password: ${student.password_digest}`);
+          res.status(401);
+          res.send(`Invalid password`);
+        }
+      })
+    );
   }
 
   async show() {
@@ -45,6 +49,8 @@ export class StudentStore {
 
   async index(uid: Number) {
     await this.connect();
+    console.log(uid);
+
     return await studentModel.findOne({ uid: uid });
   }
 
