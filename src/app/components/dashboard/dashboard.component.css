@@ -7,19 +7,21 @@
 }
 
 .parent {
-   margin-top: 3%;
+   margin-top: 11vh;
+   height: 75vh;
    margin-right: 15%;
    padding: 2%;
+   padding-bottom: 6vh;
+   z-index: -1;
    display: grid;
    grid-template-columns: 1fr 2fr;
-   grid-template-rows: 0.1fr 0.8fr 0.1fr repeat(3, 0.5fr);
+   grid-template-rows: 0.1fr 0.5fr 0.1fr repeat(3, 0.5fr);
    grid-column-gap: 5%;
    grid-row-gap: 10px;
 }
 
 .timeline-heading {
    grid-area: 1 / 1 / 2 / 3;
-   margin-top: 3%;
 }
 
 .timeline-heading>h1 {
@@ -31,7 +33,65 @@
 
 .timeline-widget {
    grid-area: 2 / 1 / 3 / 3;
-   margin-top: 3.5%;
+}
+
+body {
+   margin: 0;
+   padding: 0;
+}
+
+.container {
+   position: absolute;
+   top: 20%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   margin-top: 50px;
+}
+
+.steps {
+   position: relative;
+   display: flex;
+   justify-content: space-between;
+   width: 55vw;
+}
+
+.card {
+   background-color: #fff;
+}
+
+.step {
+   width: 20px;
+   height: 20px;
+   background: #fff;
+   border: 2px solid #ACACA6;
+   border-radius: 50%;
+   transition: background 1s;
+}
+
+.step.selected {
+   border: 2px solid #4B81BD;
+}
+
+.step.completed {
+   border: 2px solid #4B81BD;
+   background: #4B81BD;
+}
+
+.progress {
+   position: absolute;
+   width: 100%;
+   height: 50%;
+   border-bottom: 2px solid #ACACA6;
+   z-index: -1;
+}
+
+.percent {
+   position: absolute;
+   width: 0;
+   height: 100%;
+   border-bottom: 2px solid #4B81BD;
+   z-index: 1;
+   transition: width 1s;
 }
 
 .message-heading {

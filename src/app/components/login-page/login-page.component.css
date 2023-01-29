@@ -3,6 +3,11 @@
   padding: 0;
 }
 
+html {
+  margin: 0;
+  padding: 0;
+}
+
 .container {
   display: flex;
   width: 100%;
@@ -24,11 +29,9 @@ label {
   min-width: 45%;
   width: 100%;
   align-self: center;
-  border: #04aa6d 1px solid;
 }
 
 .form-container {
-  border: #04aa6d 1px solid;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -101,19 +104,14 @@ button:hover {
 }
 
 /* Picture Side */
-#aside-pic {
-  width: 100%;
-  max-width: 700px;
-  height: 100%;
-}
-
-aside {
-  background-image: url("../../../assets/media/college.jpg");
+.aside-pic {
   background-size: cover;
-  border: #04aa6d 5px solid;
-  height: 100%;
-  width: 100%;
-  max-width: 800px;
+  position: sticky;
+  top: 0;
+  right: 0;
+  width: 55%;
+  height: 100vh;
+  border-left: #04aa6d 5px solid;
 }
 
 footer {
