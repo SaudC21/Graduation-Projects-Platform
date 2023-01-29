@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal&display=swap');
+
+* {
+   text-align: right;
+   font-family: 'Tajawal', sans-serif;
+   direction: rtl;
+}
+
+.parent {
+   margin-top: 3%;
+   margin-right: 15%;
+   padding: 2%;
+   display: grid;
+   grid-template-columns: 1fr 2fr;
+   grid-template-rows: 0.1fr 0.8fr 0.1fr repeat(3, 0.5fr);
+   grid-column-gap: 5%;
+   grid-row-gap: 10px;
+}
+
+.timeline-heading {
+   grid-area: 1 / 1 / 2 / 3;
+   margin-top: 3%;
+}
+
+.timeline-heading>h1 {
+   text-align: right;
+   font-size: 2em;
+   font-weight: 900;
+   margin: 0;
+}
+
+.timeline-widget {
+   grid-area: 2 / 1 / 3 / 3;
+   margin-top: 3.5%;
+}
+
+.message-heading {
+   grid-area: 3 / 1 / 4 / 2;
+   text-align: right;
+   font-size: 1.5em;
+   font-weight: 900;
+}
+
+.message-widget {
+   grid-area: 4 / 1 / 7 / 2;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   border-radius: 5%;
+   box-shadow: rgba(0, 0, 0, 0.24) 3px 5px 8px;
+   width: 80%;
+}
+
+.sender-box {
+   display: grid;
+   grid-template-columns: 2fr 5fr;
+   grid-template-rows: 0.5fr 0.5fr;
+   grid-column-gap: 10px;
+   margin: 10%;
+}
+
+.pfp {
+   grid-area: 1 / 1 / 3 / 2;
+   width: 100%;
+   border-radius: 100%;
+   align-self: center;
+   justify-self: center;
+}
+
+.name {
+   grid-area: 1 / 2 / 2 / 3;
+   align-self: end;
+   color: #1BC5BD;
+   font-size: 2em;
+   font-weight: 900;
+   margin: 0;
+   padding-right: 2%;
+}
+
+.role {
+   grid-area: 2 / 2 / 3 / 3;
+   align-self: start;
+   color: #1BC5BD;
+   font-size: 1.2em;
+   margin: 0;
+   padding-right: 2%;
+}
+
+.message {
+   padding: 3%;
+}
+
+.date {
+   text-align: left;
+   padding-left: 2%;
+   align-self: end;
+}
+
+.task-heading {
+   grid-area: 3 / 2 / 4 / 4;
+   text-align: right;
+   font-size: 1.5em;
+   font-weight: 900;
+}
+
+.task-list {
+   grid-area: 4 / 2 / 7 / 4;
+   display: flex;
+   flex-direction: column;
+   gap: 2vh;
+}
+
+.task-widget {
+   border-radius: 3vw;
+   box-shadow: rgba(0, 0, 0, 0.24) 3px 5px 8px;
+   width: 80%;
+   height: 32%;
+   display: grid;
+   grid-template-columns: 3fr 1fr;
+   grid-template-rows: repeat(2, 1fr);
+   grid-column-gap: 10px;
+   grid-row-gap: 10px;
+   padding: 3%;
+}
+
+.task-name {
+   grid-area: 1 / 1 / 2 / 2;
+   font-size: 2em;
+   font-weight: 900;
+   margin: 0;
+}
+
+.due-date {
+   grid-area: 2 / 1 / 3 / 2;
+   font-size: 1.2em;
+   margin: 0;
+}
+
+.priority {
+   grid-area: 1 / 2 / 2 / 3;
+   font-size: 1.2em;
+   margin: 0;
+   text-align: center;
+}
+
+.submit {
+   grid-area: 2 / 2 / 3 / 3;
+   background-color: #1BC5BD;
+   border-radius: 2vw;
+   text-align: center;
+   font-size: 1.5em;
+   color: #fff;
+   align-self: center;
+   font-weight: 900;
+   padding: 0.5vh;
+}

@@ -90,6 +90,7 @@ button:hover {
   width: 55%;
   height: 12%;
   display: block;
+  margin: auto;
   padding-bottom: 8%;
 }
 
