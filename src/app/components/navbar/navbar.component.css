@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal&display=swap');
+
+* {
+   text-align: right;
+   font-family: 'Tajawal', sans-serif;
+   direction: rtl;
+}
+
+
+/* Header --- NEEDS WORK*/
+
+.header {
+   width: 85%;
+   position: fixed;
+   top: 0;
+   left: 0;
+   height: 11vh;
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   background-color: #fff;
+}
+
+.profile-widget {
+   display: flex;
+   flex-direction: row-reverse;
+   align-items: center;
+   justify-items: flex-start;
+}
+
+.nav-section {
+   display: flex;
+   flex: 0 1 auto;
+   flex-direction: row-reverse;
+   align-items: center;
+   justify-items: flex-start;
+
+}
+
+.pfp {
+   margin-top: 1vh;
+   margin-bottom: 1vh;
+   margin-left: 1vw;
+   width: 2.7%;
+   border-radius: 10%;
+}
+
+.title-section {
+   border-top: #888 solid 1px;
+}
+
+.page-title {
+   margin-right: 1vw;
+}
+
+.welcome-message {
+   font-size: 1.5em;
+   margin: 0 2vw 0 2vw;
+}
+
+.alert-counter {
+   height: 25px;
+   width: 25px;
+   background-color: #FF4747;
+   border-radius: 50%;
+   display: inline-block;
+   text-align: center;
+   vertical-align: middle;
+   color: #fff;
+   margin: 0 1vw 0 1vw;
+}
+
+.item-icon {
+   cursor: pointer;
+}
+
+.item-icon>img {
+   max-width: 36px;
+   margin-left: 0;
+   margin-right: 1vw;
+}
