@@ -1,9 +1,0 @@
-{
-  "dev": {
-    "driver": "pg",
-    "host": "localhost",
-    "database": "graduation_project_platform",
-    "user": "fcit_admin",
-    "password": "tiger"
-  }
-}
