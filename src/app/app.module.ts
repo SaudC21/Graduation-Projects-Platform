@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { FormsModule }   from '@angular/forms';
-import { MatCardModule } from '@angular/material/card';
 
 import { CardModule } from "primeng/card";
 import { TimelineModule } from "primeng/timeline";
@@ -21,8 +19,8 @@ import { ArchivedProjectsCardComponent } from './components/archived-projects-ca
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  declarations: [AppComponent, LoginPageComponent, RegisterPageComponent, MainPageComponent, NavbarComponent, SidebarComponent, DashboardComponent, FooterComponent, HorizontalTimelineComponent, ArchivedProjectsCardComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, MainRoutingModule, TimelineModule, CardModule, NoopAnimationsModule, MatCardModule],
+  declarations: [AppComponent, LoginPageComponent, RegisterPageComponent, MainPageComponent, NavbarComponent, SidebarComponent, DashboardComponent, FooterComponent, ArchivedProjectsCardComponent],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, MainRoutingModule, TimelineModule, CardModule, NoopAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
