@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
+import { CardModule } from "primeng/card";
+import { TimelineModule } from "primeng/timeline";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from './../environments/environment';
@@ -16,12 +18,13 @@ import { MainRoutingModule } from './components/main-page/main-routing.module';
 import { AuthInterceptor } from './interceptors/auth/auth.interceptor';
 import { FooterComponent } from './components/footer/footer.component';
 import { ArchivedProjectsCardComponent } from './components/archived-projects-card/archived-projects-card/archived-projects-card.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
 
   declarations: [AppComponent, LoginPageComponent, RegisterPageComponent, MainPageComponent, NavbarComponent, SidebarComponent, DashboardComponent, FooterComponent, ArchivedProjectsCardComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, MainRoutingModule, HttpClientModule,],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, MainRoutingModule, TimelineModule, CardModule, NoopAnimationsModule, HttpClientModule,],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },],
 
   bootstrap: [AppComponent],
