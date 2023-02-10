@@ -2,210 +2,45 @@
   <!-- Login Form -->
   <div class="item form-side">
     <!-- <div class="login-form"> -->
-    <div class="form-div">
-      <h1>منصة مشاريع التخرج</h1>
-      <!-- <label for="firstName" class="label">الاسم الأول</label>
-        <input
-          type="text"
-          placeholder="ادخل الاسم الأول"
-          name="firstName"
-          required
-          [(ngModel)]="user.first_name"
-        /> -->
-
-      <mat-form-field class="email-input" dir="rtl" ngDefaultControl>
-        <mat-label>الاسم الأخير</mat-label>
-        <input
-          dir="rtl"
-          [formControl]="validator.lastNameFormControl"
-          matInput
-          [errorStateMatcher]="matcher"
-          [(ngModel)]="user.last_name"
-          ngDefaultControl
-        />
-        <mat-error
-          dir="rtl"
-          *ngIf="validator.lastNameFormControl.hasError('required')"
-          ngDefaultControl
-        >
-          الاسم الاخير <strong>مطلوب</strong>
-        </mat-error>
-      </mat-form-field>
-
-      <mat-form-field dir="rtl" ngDefaultControl>
-        <mat-label>الاسم الأول</mat-label>
-        <input
-          dir="rtl"
-          matInput
-          [formControl]="validator.firstNameFormControl"
-          [errorStateMatcher]="matcher"
-          [(ngModel)]="user.email"
-          ngDefaultControl
-        />
-        <mat-error
-          dir="rtl"
-          *ngIf="validator.firstNameFormControl.hasError('required')"
-          ngDefaultControl
-        >
-          الاسم الأول <strong>مطلوب</strong>
-        </mat-error>
-      </mat-form-field>
-
-      <!-- <mat-form-field dir="rtl" [(ngModel)]="user.uid">
-          <mat-label>الرقم الجامعي</mat-label>
-          <input
-            dir="rtl"
-            matInput
-            [formControl]="validator.uidFormControl"
-            [errorStateMatcher]="matcher"
-          />
-          <mat-error
-            dir="rtl"
-            *ngIf="validator.uidFormControl.hasError('required')"
-          >
-          الرقم الجامعي <strong>مطلوب</strong>
-          </mat-error>
-        </mat-form-field> -->
-
-      <mat-form-field
-        class="email-input"
-        dir="rtl"
-        matInput
-        [(ngModel)]="user.last_name"
-        ngDefaultControl
-      >
-        <mat-label>الرقم الجامعي</mat-label>
-        <input
-          dir="rtl"
-          [formControl]="validator.uidFormControl"
-          matInput
-          [errorStateMatcher]="matcher"
-          ngDefaultControl
-        />
-        <mat-error
-          dir="rtl"
-          *ngIf="validator.uidFormControl.hasError('required')"
-          ngDefaultControl
-        >
-          الرقم الجامعي <strong>مطلوب</strong>
-        </mat-error>
-      </mat-form-field>
-
-      <!-- <label for="uid" class="label">الرقم الجامعي</label>
-        <input
-          type="text"
-          placeholder="ادخل الرقم الجامعي"
-          name="uid"
-          required
-          [(ngModel)]="user.uid"
-        /> -->
-      <mat-form-field ngDefaultControl>
-        <mat-label>الرقم الجامعي</mat-label>
-        <mat-radio-group
-          class="radio-group"
-          [(ngModel)]="user.major"
-          name="majors"
-          matInput
-          [formControl]="validator.radioFormControl"
-          ngDefaultControl
-        >
-          <mat-radio-button
-            ngDefaultControl
-            *ngFor="let major of majors"
-            [value]="major"
-            name="{{ major }}-major"
-            (change)="change($event)"
-          >
-            {{ major }}
-          </mat-radio-button>
-        </mat-radio-group></mat-form-field
-      >
-      <br />
-
-      <br />
-      <!-- <label for="email" class="label">البريد الالكتروني</label> -->
-      <br />
-      <mat-form-field
-        dir="rtl"
-        class="email-input"
-        [(ngModel)]="user.email"
-        ngDefaultControl
-      >
-        <mat-label>البريد الالكتروني</mat-label>
-        <input
-          dir="rtl"
-          type="email"
-          matInput
-          [formControl]="validator.emailFormControl"
-          [errorStateMatcher]="matcher"
-          placeholder="مثل: fcit@example.com"
-          ngDefaultControl
-        />
-        <mat-error
-          dir="rtl"
-          *ngIf="
-            validator.emailFormControl.hasError('email') &&
-              !validator.emailFormControl.hasError('required');
-            ngDefaultControl
-          "
-        >
-          الرجاء التأكد من صحة البريد الالكتروني
-        </mat-error>
-        <mat-error
-          dir="rtl"
-          *ngIf="validator.emailFormControl.hasError('required')"
-          ngDefaultControl
-        >
-          البريد الالكتروني <strong>مطلوب</strong>
-        </mat-error>
-      </mat-form-field>
-      <br />
-      <br />
-      <!-- <input type="text" placeholder="ادخل البريد الالكتروني" name="email" required [(ngModel)]="user.email"
-                    email="true" /> -->
-      <!-- <label for="phoneNumber" class="label">رقم الجوال</label> -->
-      <!-- <input
-          type="text"
-          placeholder="ادخل رقم الجوال"
-          name="phoneNumber"
-          required
-          [(ngModel)]="user.phone_number" ngDefaultControl
-        /> -->
-      <!-- <label for="psw" class="label">كلمة المرور</label>
-        <input
-          type="password"
-          placeholder="ادخل كلمة المرور"
-          name="psw"
-          required
-          [(ngModel)]="user.password_digest" ngDefaultControl
-        />
+    <form method="post">
+      <div class="form-div">
+        <h1>منصة مشاريع التخرج</h1>
+        <label for="fname" class="label">الاسم الأول</label>
+        <input type="text" placeholder="ادخل الاسم الأول" name="fname" required [(ngModel)]='user.first_name'>
+        <label for="lname" class="label">اسم العائلة</label>
+        <input type="text" placeholder="ادخل اسم العائلة" name="lname" required [(ngModel)]='user.last_name'>
+        <label for="uid" class="label">الرقم الجامعي</label>
+        <input type="text" placeholder="ادخل الرقم الجامعي" name="uid" required [(ngModel)]='user.uid'>
+        <label for="uid" class="label">التخصص</label>
+        <br>
+        <select class="major" name="specialization" [(ngModel)]='user.major' dir=rtl>
+          <option value="CS">علوم الحاسب</option>
+          <option value="IS">نظم المعلومات</option>
+          <option value="IT">تقنية المعلومات</option>
+        </select>
+        <br>
+        <br>
+        <label for="email" class="label">البريد الالكتروني</label>
+        <input type="text" placeholder="ادخل البريد الالكتروني" name="email" required [(ngModel)]='user.email'>
+        <label for="phoneNumber" class="label">رقم الجوال</label>
+        <input type="text" placeholder="ادخل رقم الجوال" name="phoneNumber" required [(ngModel)]='user.phone_number'>
+        <label for="psw" class="label">كلمة المرور</label>
+        <input type="password" placeholder="ادخل كلمة المرور" name="psw" required [(ngModel)]='user.password_digest'>
         <label for="psw-confirm" class="label">تأكيد كلمة المرور</label>
-        <input
-          type="password"
-          placeholder="ادخل تأكيد كلمة المرور"
-          name="psw-confirm"
-          required
-          [(ngModel)]="pwConfirmation" ngDefaultControl
-        /> -->
-      <div class="button-box">
-        <button class="register-button" type="submit" (click)="onRegister()">
-          متابعة
-        </button>
+        <input type="password" placeholder="ادخل تأكيد كلمة المرور" name="psw-confirm" required
+          [(ngModel)]='pwConfirmation'>
+        <div class="button-box">
+          <button class="register-button" type="button" (click)="onRegister()">متابعة</button>
+        </div>
       </div>
-    </div>
+    </form>
     <!-- </div> -->
     <footer>
-      <a href="https://computing.kau.edu.sa/" class="fcit"
-        >كلية الحاسبات وتقنية المعلومات &copy;</a
-      >
+      <a href="https://computing.kau.edu.sa/" class="fcit">كلية الحاسبات وتقنية المعلومات &copy;</a>
     </footer>
   </div>
   <!-- Aside Picture -->
   <aside class="item picutre-side">
-    <img
-      id="aside-pic"
-      src="../../../assets/media/college.jpg"
-      alt="College Enterance"
-    />
+    <img id="aside-pic" src="../../../assets/media/college.jpg" alt="College Enterance">
   </aside>
 </main>

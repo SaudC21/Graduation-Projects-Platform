@@ -17,19 +17,12 @@ import { AuthInterceptor } from './interceptors/auth/auth.interceptor';
 import { FooterComponent } from './components/footer/footer.component';
 import { ArchivedProjectsCardComponent } from './components/archived-projects-card/archived-projects-card/archived-projects-card.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 
 @NgModule({
 
   declarations: [AppComponent, LoginPageComponent, RegisterPageComponent, MainPageComponent, NavbarComponent, SidebarComponent, DashboardComponent, FooterComponent, ArchivedProjectsCardComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, MainRoutingModule, NoopAnimationsModule, HttpClientModule, MatRadioModule, MatFormFieldModule,
-    MatInputModule, ReactiveFormsModule],
-  exports: [MatFormFieldModule, MatInputModule],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true, },
-  { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher }],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, MainRoutingModule, NoopAnimationsModule, HttpClientModule, ReactiveFormsModule],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true, },],
 
   bootstrap: [AppComponent],
 })
