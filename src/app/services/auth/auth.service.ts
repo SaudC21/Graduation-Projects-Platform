@@ -8,7 +8,7 @@ import * as moment from 'moment';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(private router: Router, private http: HttpClient) { }
 
   async authenticate(uid: string, password: string, userType: string) {
     this.http
@@ -46,6 +46,29 @@ export class AuthService {
           this.routeLogin();
           return;
         }
+      });
+  }
+
+  async register(record: any, userType: string) {
+    console.log(record);
+    console.log('auth register method called');
+    await this.http
+      .post(
+        `${environment.BACKEND_URL}${environment.PORT}/${userType}`,
+        {
+          uid: parseInt(record.uid),
+          first_name: record.first_name,
+          last_name: record.last_name,
+          email: record.email,
+          password_digest: record.password_digest,
+          phone_number: record.phone_number,
+          major: record.major,
+        },
+        { responseType: 'text' }
+      ).toPromise().then((res) => {
+        console.log(res);
+        alert(`You have been registered, please login with your credentials`);
+        this.routeAuth();
       });
   }
 

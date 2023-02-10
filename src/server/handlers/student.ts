@@ -33,6 +33,7 @@ const index = async (req: Request, res: Response) => {
 };
 
 const create = async (req: Request, res: Response) => {
+  console.log(req.body);
   try {
     const student: Student = {
       uid: req.body.uid,
@@ -45,7 +46,7 @@ const create = async (req: Request, res: Response) => {
       group_id: req.body.group_id,
     };
     const studentRecord = await store.insert(student);
-    res.send('inshallah its been added');
+    res.send(`${studentRecord.first_name} has been added`);
   } catch (err) {
     res.send(err);
   }

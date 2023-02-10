@@ -52,7 +52,8 @@ export class StudentStore {
     return await studentModel.findOne({ uid: uid });
   }
 
-  async insert(record: Student) {
+  async insert(record: Student): Promise<any> {
+    console.log(record);
     await this.connect();
     const student = new studentModel(record);
 
@@ -66,6 +67,7 @@ export class StudentStore {
       );
       return student;
     });
+    return new Error(`Student was not added`);
   }
 
   async update(record: object, uid: string) {

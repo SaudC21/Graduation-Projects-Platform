@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PrimeIcons } from 'primeng/api';
 import { TimelineElement } from '../horizontal-timeline/timeline-element';
 
 @Component({
