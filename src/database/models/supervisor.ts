@@ -1,6 +1,5 @@
 import { model, connect } from 'mongoose';
 import { supervisorSchema, Supervisor } from '../Schema/supervisor';
-import { environment } from '../../environments/environment';
 
 // Create a Model
 export const supervisorModel = model<Supervisor>('supervisors', supervisorSchema);
@@ -8,7 +7,7 @@ export const supervisorModel = model<Supervisor>('supervisors', supervisorSchema
 export class SupervisorStore {
    async connect() {
       // Connect to MongoDB
-      await connect(environment.MONGODB_URI);
+      await connect(process.env['MONGODB_URI'] as string);
    }
 
    async show() {

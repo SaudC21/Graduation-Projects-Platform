@@ -1,6 +1,5 @@
 import * as mongoose from 'mongoose';
 import { studentSchema, Student } from '../Schema/student';
-import { environment } from '../../environments/environment';
 import * as bcrypt from 'bcrypt';
 import { Response } from 'express';
 import * as jwt from 'jsonwebtoken';
@@ -18,7 +17,7 @@ export const studentModel = mongoose.model<Student>('students', studentSchema);
 export class StudentStore {
   async connect() {
     // Connect to MongoDB
-    await mongoose.connect(environment.MONGODB_URI);
+    await mongoose.connect(process.env['MONGODB_URI'] as string);
   }
 
   async authenticate(uid: number, password: string, res: Response) {
