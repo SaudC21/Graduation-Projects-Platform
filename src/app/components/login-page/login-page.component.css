@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "Noto Kufi Arabic", sans-serif !important;
 }
 
 html {
@@ -15,18 +16,17 @@ html {
 }
 
 h1 {
-  font-family: "Noto Kufi Arabic", sans-serif;
   padding-bottom: 4%;
 }
 
 label {
-  font-family: "Noto Kufi Arabic", sans-serif;
   font-size: 18px;
 }
 
 /* Form Side */
 .form-side {
   min-width: 45%;
+  max-width: 65%;
   width: 100%;
   align-self: center;
 }
@@ -56,13 +56,14 @@ input[type="password"] {
 }
 
 button {
+  font-weight: 900;
   background-color: #04aa6d;
   color: white;
-  padding: 14px 20px;
+  padding: 1vh 2vw;
   margin: 8px 1.5%;
   border: none;
   cursor: pointer;
-  width: 25%;
+  width: 12vw;
   float: right;
   border-radius: 8px;
 }
@@ -115,8 +116,12 @@ button:hover {
 }
 
 footer {
+  position: absolute;
+  bottom: 0;
   text-align: center;
-  width: 96.1%;
+  min-width: 45%;
+  max-width: 65%;
+  width: 100%;
   background-color: #eee;
   color: rgb(0, 0, 0);
   padding: 20px;
@@ -131,5 +136,4 @@ footer {
   color: black;
 }
 
-@media only screen and (max-width: 1000px) {
-}
+@media only screen and (max-width: 1000px) {}
