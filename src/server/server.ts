@@ -23,7 +23,6 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.listen(process.env['PORT'], () => {
-  console.log(process.env['MONGODB_URI']);
   console.log(`listening on port ${process.env['PORT']}`);
 });
 

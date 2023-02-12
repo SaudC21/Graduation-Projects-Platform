@@ -1,20 +1,26 @@
-import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { Component, OnInit } from '@angular/core';
+import { HeaderService } from 'src/app/services/header/header.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
 })
-export class NavbarComponent {
-  constructor(private http: HttpClient) {}
+export class NavbarComponent implements OnInit {
+  header = '';
+  userName = '';
+  constructor(
+    private headerService: HeaderService,
+    private userService: UserService
+  ) {}
 
-  test() {
-    this.http
-      .get(`${environment.BACKEND_URL}${environment.PORT}/student/hello`, {})
-      .subscribe((data) => {
-        console.log(data);
-      });
+  ngOnInit(): void {
+    this.headerService.headerChange.subscribe((header) => {
+      this.header = header;
+    });
+    this.userService.userChange.subscribe((user: any) => {
+      this.userName = `${user.first_name} ${user.last_name}`;
+    });
   }
 }

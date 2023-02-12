@@ -3,16 +3,23 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import * as moment from 'moment';
+import { UserService } from '../user/user.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+    private userService: UserService
+  ) {}
 
   async authenticate(uid: string, password: string, userType: string) {
     console.log(`authenticate mthod: `, uid, password, userType);
-    console.log(`${environment.BACKEND_URL}${environment.PORT}/${userType}/authenticate`);
+    console.log(
+      `${environment.BACKEND_URL}${environment.PORT}/${userType}/authenticate`
+    );
     this.http
       .post(
         `${environment.BACKEND_URL}${environment.PORT}/${userType}/authenticate`,
@@ -34,10 +41,10 @@ export class AuthService {
       .then((response: any) => {
         console.log(response);
         if (response == 'invalid password') {
-          console.log(`36`)
+          console.log(`36`);
           return;
         } else if (response == 'invalid token') {
-          console.log(`39`)
+          console.log(`39`);
           return 'invalid token';
         } else {
           const expiresAt = moment().add(
@@ -52,6 +59,16 @@ export class AuthService {
           this.routeLogin();
           return;
         }
+      })
+      .then(() => {
+        this.http
+          .get(
+            `${environment.BACKEND_URL}${environment.PORT}/${userType}/${uid}`
+          )
+          .subscribe((res: any) => {
+            console.log(res);
+            this.userService.setUser(res);
+          });
       });
   }
 
@@ -81,7 +98,7 @@ export class AuthService {
   }
 
   routeAuth() {
-    console.log(`test`); 
+    console.log(`test`);
     this.router.navigate(['/login']);
   }
 
@@ -101,7 +118,9 @@ export class AuthService {
           major: record.major,
         },
         { responseType: 'text' }
-      ).toPromise().then((res) => {
+      )
+      .toPromise()
+      .then((res) => {
         console.log(res);
         alert(`You have been registered, please login with your credentials`);
         this.routeAuth();

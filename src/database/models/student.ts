@@ -47,9 +47,6 @@ export class StudentStore {
   async index(uid: Number) {
     await this.connect();
     const student = await studentModel.findOne({ uid: uid });
-    if (student != null) {
-      student.password_digest = '';
-    }
     return student;
   }
 

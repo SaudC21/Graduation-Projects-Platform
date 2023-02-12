@@ -18,12 +18,6 @@ export class AuthInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     const token = localStorage.getItem('token');
     if (!localStorage.getItem('token')) {
-      //   console.log(request.url.split('/'));
-      //   if (request.url.split('/')[4] == 'authenticate') {
-      //     console.log(`authorization`);
-      //     return next.handle(request);
-      //   }
-      console.log(`authorization222`);
       this.authService.logout();
       this.authService.routeAuth();
     }
@@ -36,7 +30,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
     if (token) {
       const cloned = request.clone({
-        headers: request.headers.set('Authorization', 'Bearer ' + token),
+        headers: request.headers.set('Authorization', token),
       });
 
       return next.handle(cloned);
