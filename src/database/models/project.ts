@@ -1,6 +1,5 @@
 import { model, connect } from 'mongoose';
 import { projectSchema, Project } from '../Schema/project';
-import { environment } from '../../environments/environment';
 
 // Create a Model
 export const projectModel = model<Project>('projects', projectSchema);
@@ -8,7 +7,7 @@ export const projectModel = model<Project>('projects', projectSchema);
 export class ProjectStore {
    async connect() {
       // Connect to MongoDB
-      await connect(environment.MONGODB_URI);
+      await connect(process.env['MONGODB_URI'] as string);
    }
 
    async show() {

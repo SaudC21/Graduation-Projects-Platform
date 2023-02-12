@@ -1,6 +1,5 @@
 import { model, connect } from 'mongoose';
 import { coordinatorSchema, Coordinator } from '../Schema/coordinator';
-import { environment } from '../../environments/environment';
 
 // Create a Model
 export const coordinatorModel = model<Coordinator>('coordinators', coordinatorSchema);
@@ -8,7 +7,7 @@ export const coordinatorModel = model<Coordinator>('coordinators', coordinatorSc
 export class CoordinatorStore {
    async connect() {
       // Connect to MongoDB
-      await connect(environment.MONGODB_URI);
+      await connect(process.env['MONGODB_URI'] as string);
    }
 
    async show() {
@@ -25,14 +24,14 @@ export class CoordinatorStore {
       this.connect();
       const coordinator = new coordinatorModel(record);
 
-      await coordinator.save(function (err){
-         if (err){
-             console.log(err);
-             return err;
+      await coordinator.save(function (err) {
+         if (err) {
+            console.log(err);
+            return err;
          }
          console.log(`${coordinator.first_name} ${coordinator.last_name} was saved to the database!`);
          return coordinator;
-       });
+      });
    }
 
    async update(record: object, uid: string) {

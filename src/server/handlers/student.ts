@@ -53,6 +53,8 @@ const create = async (req: Request, res: Response) => {
 };
 
 const authenticate = async (req: Request, res: Response) => {
+  console.log('here');
+  console.log(req.body);
   try {
     await store.authenticate(parseInt(req.body.uid), req.body.password, res);
   } catch (err) {

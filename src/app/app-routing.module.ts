@@ -4,6 +4,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ProjectsArchiveComponent } from './components/projects-archive/projects-archive.component';
 
 const routes: Routes = [
   {
@@ -25,4 +26,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
+
 export class AppRoutingModule {}

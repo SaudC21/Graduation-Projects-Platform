@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { LoginPageComponent } from '../login-page/login-page.component';
 import { MainPageComponent } from './main-page.component';
+import { ProjectsArchiveComponent } from '../projects-archive/projects-archive.component';
 
 // Add components here to enable main routing
 const routes: Routes = [
@@ -23,6 +24,10 @@ const routes: Routes = [
         path: 'test',
         component: LoginPageComponent,
       },
+      {
+        path: 'archive',
+        component: ProjectsArchiveComponent,
+      },
     ],
   },
 ];
@@ -32,4 +37,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class MainRoutingModule {}
+export class MainRoutingModule { }

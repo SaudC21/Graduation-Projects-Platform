@@ -10,7 +10,7 @@ import { AuthService } from '../../services/auth/auth.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) { }
 
   intercept(
     request: HttpRequest<unknown>,
@@ -20,8 +20,12 @@ export class AuthInterceptor implements HttpInterceptor {
 
     const token = localStorage.getItem('token');
     if (!localStorage.getItem('token')) {
-      console.log(localStorage);
-
+      console.log(request.url.split('/'));
+      if (request.url.split('/')[4] == 'authenticate') {
+        console.log(`authorization`);
+        return next.handle(request);
+      }
+      console.log(`authorization222`);
       this.authService.logout();
       this.authService.routeAuth();
     }

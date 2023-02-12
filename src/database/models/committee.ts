@@ -8,7 +8,7 @@ const committeeMemberModel = model<CommitteeMember>('committee_members', committ
 export class CommitteeStore {
    async connect() {
       // Connect to MongoDB
-      await connect(environment.MONGODB_URI);
+      await connect(process.env['MONGODB_URI'] as string);
    }
 
    async show() {
