@@ -1,6 +1,5 @@
 import { model, connect, disconnect } from 'mongoose';
 import { committeeSchema, CommitteeMember } from '../Schema/committee';
-import { environment } from '../../environments/environment';
 
 // Create a Model
 const committeeMemberModel = model<CommitteeMember>('committee_members', committeeSchema);

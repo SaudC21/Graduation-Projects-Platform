@@ -40,7 +40,6 @@ import { ProjectsArchiveComponent } from './components/projects-archive/projects
     MainRoutingModule,
     NoopAnimationsModule,
     HttpClientModule,
-    ReactiveFormsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
