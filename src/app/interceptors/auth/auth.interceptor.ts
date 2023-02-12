@@ -10,21 +10,19 @@ import { AuthService } from '../../services/auth/auth.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) {}
 
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    console.log(`hi`);
-
     const token = localStorage.getItem('token');
     if (!localStorage.getItem('token')) {
-      console.log(request.url.split('/'));
-      if (request.url.split('/')[4] == 'authenticate') {
-        console.log(`authorization`);
-        return next.handle(request);
-      }
+      //   console.log(request.url.split('/'));
+      //   if (request.url.split('/')[4] == 'authenticate') {
+      //     console.log(`authorization`);
+      //     return next.handle(request);
+      //   }
       console.log(`authorization222`);
       this.authService.logout();
       this.authService.routeAuth();

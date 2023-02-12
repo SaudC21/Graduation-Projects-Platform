@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttpClientTestingModule} from '@angular/common/http/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,11 +21,31 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ProjectsArchiveComponent } from './components/projects-archive/projects-archive.component';
 
 @NgModule({
-
-  declarations: [AppComponent, LoginPageComponent, RegisterPageComponent, MainPageComponent, NavbarComponent, SidebarComponent, DashboardComponent, FooterComponent, ArchivedProjectsCardComponent, ProjectsArchiveComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, MainRoutingModule, NoopAnimationsModule, HttpClientModule, ReactiveFormsModule, HttpClientTestingModule],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true, },],
+  declarations: [
+    AppComponent,
+    LoginPageComponent,
+    RegisterPageComponent,
+    MainPageComponent,
+    NavbarComponent,
+    SidebarComponent,
+    DashboardComponent,
+    FooterComponent,
+    ArchivedProjectsCardComponent,
+    ProjectsArchiveComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    MainRoutingModule,
+    NoopAnimationsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
 
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

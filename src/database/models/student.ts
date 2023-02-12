@@ -21,7 +21,6 @@ export class StudentStore {
   }
 
   async authenticate(uid: number, password: string, res: Response) {
-   console.log(`abady is hot`);
     await this.connect().then(
       await this.index(uid).then((student: any): any => {
         if (bcrypt.compareSync(password + pepper, student.password_digest)) {
@@ -47,9 +46,11 @@ export class StudentStore {
 
   async index(uid: Number) {
     await this.connect();
-    console.log(uid);
-
-    return await studentModel.findOne({ uid: uid });
+    const student = await studentModel.findOne({ uid: uid });
+    if (student != null) {
+      student.password_digest = '';
+    }
+    return student;
   }
 
   async insert(record: Student): Promise<any> {

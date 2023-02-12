@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { NavbarComponent } from '../navbar/navbar.component';
@@ -14,10 +14,14 @@ describe('MainPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MainPageComponent, NavbarComponent, SidebarComponent, FooterComponent],
-      imports: [HttpClientTestingModule, RouterTestingModule]
-    })
-      .compileComponents();
+      declarations: [
+        MainPageComponent,
+        NavbarComponent,
+        SidebarComponent,
+        FooterComponent,
+      ],
+      imports: [HttpClientModule, RouterTestingModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(MainPageComponent);
     component = fixture.componentInstance;
