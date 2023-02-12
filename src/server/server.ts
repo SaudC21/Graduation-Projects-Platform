@@ -1,6 +1,9 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
+//@ts-ignore
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 import { committeeRoutes } from './handlers/committee';
 import { studentRoutes } from './handlers/student';
@@ -19,8 +22,9 @@ app.use(cors());
 // parse application/json
 app.use(bodyParser.json());
 
-app.listen(4000, () => {
-  console.log(`listening on port 4000`);
+app.listen(process.env['PORT'], () => {
+  console.log(process.env['MONGODB_URI']);
+  console.log(`listening on port ${process.env['PORT']}`);
 });
 
 committeeRoutes(app);

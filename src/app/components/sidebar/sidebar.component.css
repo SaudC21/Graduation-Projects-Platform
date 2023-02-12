@@ -1,14 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Tajawal&display=swap');
 
 * {
    text-align: right;
-   font-family: 'Tajawal', sans-serif;
+   font-family: "Noto Kufi Arabic", sans-serif !important;
    direction: rtl;
 }
 
 
 /* Sidebar */
-
 .sidebar {
    max-width: 15%;
    position: fixed;
@@ -40,6 +38,7 @@
 }
 
 .sidebar-item {
+   margin-bottom: 3vh;
    display: flex;
    flex-direction: row;
    align-items: center;

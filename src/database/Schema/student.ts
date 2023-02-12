@@ -21,5 +21,5 @@ export const studentSchema = new Schema<Student>({
    password_digest: { type: String, required: true },
    phone_number: { type: String, required: true },
    major: { type: String, required: true },
-   group_id: { type: String, required: true },
+   group_id: { type: String, required: false },
 });

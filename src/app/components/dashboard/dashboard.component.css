@@ -1,8 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Tajawal&display=swap');
-
 * {
    text-align: right;
-   font-family: 'Tajawal', sans-serif;
+   font-family: "Noto Kufi Arabic", sans-serif !important;
    direction: rtl;
 }
 
@@ -67,6 +65,8 @@ body {
    border-radius: 50%;
    transition: background 1s;
 }
+
+
 
 .step.selected {
    border: 2px solid #4B81BD;

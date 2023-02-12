@@ -46,14 +46,19 @@ export class StudentStore {
 
   async index(uid: Number) {
     await this.connect();
-    console.log(uid);
-
-    return await studentModel.findOne({ uid: uid });
+    const student = await studentModel.findOne({ uid: uid });
+    if (student != null) {
+      student.password_digest = '';
+    }
+    return student;
   }
 
-  async insert(record: Student) {
+  async insert(record: Student): Promise<any> {
+    console.log(record);
     await this.connect();
     const student = new studentModel(record);
+    const hash = bcrypt.hashSync(record.password_digest + pepper, saltRounds);
+    student.password_digest = hash;
 
     await student.save(function (err) {
       if (err) {
@@ -65,6 +70,7 @@ export class StudentStore {
       );
       return student;
     });
+    return new Error(`Student was not added`);
   }
 
   async update(record: object, uid: string) {

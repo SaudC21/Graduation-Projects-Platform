@@ -6,7 +6,7 @@ import {
   HttpInterceptor,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AuthService } from 'src/app/services/auth/auth.service';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -16,12 +16,14 @@ export class AuthInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    console.log(`hi`);
-
     const token = localStorage.getItem('token');
     if (!localStorage.getItem('token')) {
-      console.log(localStorage);
-
+      //   console.log(request.url.split('/'));
+      //   if (request.url.split('/')[4] == 'authenticate') {
+      //     console.log(`authorization`);
+      //     return next.handle(request);
+      //   }
+      console.log(`authorization222`);
       this.authService.logout();
       this.authService.routeAuth();
     }

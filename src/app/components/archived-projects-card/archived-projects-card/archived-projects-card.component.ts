@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
   templateUrl: './archived-projects-card.component.html',
   styleUrls: ['./archived-projects-card.component.css']
 })
+
 export class ArchivedProjectsCardComponent {
 
 }

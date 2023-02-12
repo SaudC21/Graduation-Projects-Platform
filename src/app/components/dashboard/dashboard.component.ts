@@ -7,6 +7,7 @@ import { TimelineElement } from '../horizontal-timeline/timeline-element';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+
 export class DashboardComponent implements OnInit {
   timeline: TimelineElement[] = [];
   constructor(private router: Router) {

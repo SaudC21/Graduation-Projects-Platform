@@ -24,14 +24,14 @@ export class CoordinatorStore {
       this.connect();
       const coordinator = new coordinatorModel(record);
 
-      await coordinator.save(function (err){
-         if (err){
-             console.log(err);
-             return err;
+      await coordinator.save(function (err) {
+         if (err) {
+            console.log(err);
+            return err;
          }
          console.log(`${coordinator.first_name} ${coordinator.last_name} was saved to the database!`);
          return coordinator;
-       });
+      });
    }
 
    async update(record: object, uid: string) {
