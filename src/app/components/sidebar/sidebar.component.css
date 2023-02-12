@@ -9,6 +9,10 @@
   font-weight: 700;
 }
 
+.active-link img {
+  filter: brightness(0%);
+}
+
 /* Sidebar */
 .sidebar {
   max-width: 15%;

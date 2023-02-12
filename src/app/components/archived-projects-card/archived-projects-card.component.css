@@ -13,7 +13,7 @@ a {
   display: flex;
   flex-direction: column;
   row-gap: 1vh;
-  max-height: 10%;
+  max-height: 32vh;
   width: 15vw;
   border-radius: 8vw 8vw 3vw 3vw;
   box-shadow: 1px 0px 8px #aaa;
@@ -22,12 +22,12 @@ a {
 .card-info {
   display: flex;
   align-items: center;
-  column-gap: 2vw;
+  column-gap: 1vw;
 }
 
 .project-image {
   background-color: #b7d180;
-  height: 15vh;
+  height: 28vh;
   max-width: 100%;
   border-radius: 4vw 4vw 0vw 0vw;
   overflow: hidden;
@@ -41,11 +41,10 @@ a {
 
 .project-name h1 {
   margin: 0;
-  padding: 1vh;
-  font-weight: 900;
+  font-weight: 700;
   word-wrap: normal;
   text-align: center;
-  font-size: 1.7em;
+  font-size: 1.2em;
 }
 
 .label {
@@ -58,7 +57,7 @@ a {
 .semester {
   font-weight: 600;
   color: white;
-  padding: 1vh 1vw;
+  padding: 0.2vh 0.5vw;
   border-radius: 8px;
   height: 50%;
   text-align: center;
@@ -71,7 +70,7 @@ a {
 .section h3,
 .semester h3 {
   margin: 0;
-  font-size: 0.7vw;
+  font-size: 0.55vw;
 }
 
 .semester {
@@ -80,7 +79,7 @@ a {
 
 .view {
   background-color: #1bc5bd;
-  height: 5vh;
+  height: 7vh;
   max-width: 100%;
   border-radius: 8vw 8vw 0vw 0vw;
   overflow: hidden;
