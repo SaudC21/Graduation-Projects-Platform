@@ -34,9 +34,9 @@ export class ProjectStore {
     });
   }
 
-  async update(record: object, uid: string) {
+  async update(record: object, uid: string) {    
     await this.connect();
-    await projectModel.findOneAndUpdate({ uid: uid }, record);
+    return await projectModel.findOneAndUpdate({ uid: uid }, record);
   }
 
   async delete(uid: number) {

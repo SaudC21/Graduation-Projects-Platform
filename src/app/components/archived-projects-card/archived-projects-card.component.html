@@ -1,27 +1,27 @@
 <div class="card">
-   <div class="project-image">
-      <img src="../../../assets/media/fcit-logo.svg">
-   </div>
-   <div class="project-name">
-      <h1>Graduation Projects Platform</h1>
-   </div>
-   <div class="card-info">
-      <div class="label">
-         <h2>القسم:</h2>
-      </div>
-      <div class="section">
-         <h3>تقنية المعلومات</h3>
-      </div>
-   </div>
-   <div class="card-info">
-      <div class="label">
-         <h2>الفصل:</h2>
-      </div>
-      <div class="semester">
-         <h3>الفصل الدراسي الثاني 2023</h3>
-      </div>
-   </div>
-   <div class="view">
-      عرض المشروع
-   </div>
+  <div class="project-image">
+    <img src="../../../assets/media/fcit-logo.svg" />
+  </div>
+  <div class="project-name">
+    <h1>{{ project.title }}</h1>
+  </div>
+  <div class="card-info">
+    <div class="label">
+      <h2>القسم:</h2>
+    </div>
+    <div class="section">
+      <h3>{{ project.dept }}</h3>
+    </div>
+  </div>
+  <div class="card-info">
+    <div class="label">
+      <h2>الفصل:</h2>
+    </div>
+    <div class="semester">
+      <h3>{{ project.semester }}</h3>
+    </div>
+  </div>
+  <div class="view">
+    <a class="view" href="{{ project.repo_link }}" target="_BLANK">عرض المشروع</a>
+  </div>
 </div>

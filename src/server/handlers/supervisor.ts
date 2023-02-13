@@ -6,8 +6,11 @@ const store = new SupervisorStore();
 
 const show = async (req: Request, res: Response) => {
    try {
-      const supervisorRecord = await store.show();
-      res.send(supervisorRecord);
+      const supervisorRecords = await store.show();
+      for(let i = 0; i < supervisorRecords.length; i++) {
+         supervisorRecords[i].password_digest = '';
+      }
+      res.send(supervisorRecords);
    } catch (err) { res.send(err) }
 }
 

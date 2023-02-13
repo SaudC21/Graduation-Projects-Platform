@@ -1,24 +1,28 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { User } from 'src/app/models/user';
+import { Student } from '../../models/student';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  user: User = new User();
-  userChange: Subject<User> = new Subject<User>();
+  user: Student = new Student();
+  userChange: Subject<Student> = new Subject<Student>();
   constructor() {
     this.userChange.subscribe((user) => {
       this.user = user;
     });
   }
 
-  setUser(user: User) {
+  setUser(user: Student) {
     this.userChange.next(user);
   }
 
   getUser() {
     return this.user;
+  }
+
+  getGroupID(){
+    return this.user.group_id;
   }
 }

@@ -6,31 +6,34 @@
       <div class="form-div">
         <h1>منصة مشاريع التخرج</h1>
         <label for="fname" class="label">الاسم الأول</label>
-        <input type="text" placeholder="ادخل الاسم الأول" name="fname" required [(ngModel)]='user.first_name'>
+        <input type="text" placeholder="ادخل الاسم الأول" name="fname" required [(ngModel)]="user.first_name" />
         <label for="lname" class="label">اسم العائلة</label>
-        <input type="text" placeholder="ادخل اسم العائلة" name="lname" required [(ngModel)]='user.last_name'>
+        <input type="text" placeholder="ادخل اسم العائلة" name="lname" required [(ngModel)]="user.last_name" />
         <label for="uid" class="label">الرقم الجامعي</label>
-        <input type="text" placeholder="ادخل الرقم الجامعي" name="uid" required [(ngModel)]='user.uid'>
+        <input type="text" placeholder="ادخل الرقم الجامعي" name="uid" required [(ngModel)]="user.uid" />
         <label for="uid" class="label">التخصص</label>
-        <br>
-        <select class="major" name="specialization" [(ngModel)]='user.major' dir=rtl>
+        <br />
+        <select default="تقنية المعلومات" class="major" name="specialization" [(ngModel)]="user.major" dir="rtl">
+          <option value="" disabled selected hidden><span class="select-major">&nbsp;&nbsp;&nbsp;اختر التخصص</span></option>
           <option value="CS">علوم الحاسب</option>
           <option value="IS">نظم المعلومات</option>
           <option value="IT">تقنية المعلومات</option>
         </select>
-        <br>
-        <br>
+        <br />
+        <br />
         <label for="email" class="label">البريد الالكتروني</label>
-        <input type="text" placeholder="ادخل البريد الالكتروني" name="email" required [(ngModel)]='user.email'>
+        <input type="text" placeholder="ادخل البريد الالكتروني" name="email" required [(ngModel)]="user.email" />
         <label for="phoneNumber" class="label">رقم الجوال</label>
-        <input type="text" placeholder="ادخل رقم الجوال" name="phoneNumber" required [(ngModel)]='user.phone_number'>
+        <input type="text" placeholder="ادخل رقم الجوال" name="phoneNumber" required [(ngModel)]="user.phone_number" />
         <label for="psw" class="label">كلمة المرور</label>
-        <input type="password" placeholder="ادخل كلمة المرور" name="psw" required [(ngModel)]='user.password_digest'>
+        <input type="password" placeholder="ادخل كلمة المرور" name="psw" required [(ngModel)]="user.password_digest" />
         <label for="psw-confirm" class="label">تأكيد كلمة المرور</label>
         <input type="password" placeholder="ادخل تأكيد كلمة المرور" name="psw-confirm" required
-          [(ngModel)]='pwConfirmation'>
+          [(ngModel)]="pwConfirmation" />
         <div class="button-box">
-          <button class="register-button" type="button" (click)="onRegister()">متابعة</button>
+          <button class="register-button" type="button" (click)="onRegister()">
+            متابعة
+          </button>
         </div>
       </div>
     </form>
@@ -41,6 +44,6 @@
   </div>
   <!-- Aside Picture -->
   <aside class="item picutre-side">
-    <img id="aside-pic" src="../../../assets/media/college.jpg" alt="College Enterance">
+    <img id="aside-pic" src="../../../assets/media/college.jpg" alt="College Enterance" />
   </aside>
 </main>

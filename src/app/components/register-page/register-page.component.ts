@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { User } from '../../models/user';
+import { Student } from '../../models/student';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
 
@@ -9,7 +9,7 @@ import { AuthService } from '../../services/auth/auth.service';
   styleUrls: ['./register-page.component.css']
 })
 export class RegisterPageComponent {
-  user: User = new User();
+  user: Student = new Student();
   pwConfirmation: string = '';
   majors = ['تقنية معلومات', 'علوم حاسب', 'نظم معلومات'];
 

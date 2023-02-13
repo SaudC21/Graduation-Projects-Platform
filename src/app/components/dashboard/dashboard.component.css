@@ -154,6 +154,7 @@ body {
    border-radius: 5%;
    box-shadow: rgba(0, 0, 0, 0.24) 3px 5px 8px;
    width: 80%;
+   padding-left: 0.8vw;
 }
 
 .sender-box {
@@ -161,7 +162,7 @@ body {
    grid-template-columns: 2fr 5fr;
    grid-template-rows: 0.5fr 0.5fr;
    grid-column-gap: 10px;
-   margin: 10%;
+   margin: 1vh 1vw 0 1vw;
 }
 
 .pfp {
@@ -194,7 +195,9 @@ body {
 }
 
 .message {
+   margin-top: 0;
    padding: 0 1.5vw;
+   padding-left: 0;
 }
 
 .date {

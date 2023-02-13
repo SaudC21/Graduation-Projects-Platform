@@ -1,0 +1,33 @@
+<div class="parent">
+   <h1 class="heading">رفع المتطلّب</h1>
+   <table class="table">
+       <thead>
+           <tr>
+               <th>المتطلّب</th>
+               <th>التاريخ والوقت</th>
+               <th>أهمية المتطلّب</th>
+           </tr>
+       </thead>
+       <tbody>
+           <tr>
+               <td><strong>رفع رابط GitHub</strong></td>
+               <td><strong>PM 23:49:10 2022-12-25</strong></td>
+               <td class="priority"><strong>قصوى</strong></td>
+           </tr>
+       </tbody>
+   </table>
+   <div class="form">
+       <div class="upload-input">
+           <h2 class="subheading upload-label">رفع الملف:</h2>
+           <div class="input-upload">
+               <input type="button" name="upload" class="upload" value="رفع الملف" [disabled]="true">
+           </div>
+       </div>
+       <div class="body-input">
+           <h2 class="text-box subheading">ملاحظات إضافية:</h2>
+           <textarea name="body" class="body" placeholder="اكتب هنا..." cols="1" rows="5" [(ngModel)]="repoLink">
+       </textarea>
+       </div>
+       <input type="submit" value="تسليم الملف" class="submit" (click)="submit()">
+   </div>
+</div>

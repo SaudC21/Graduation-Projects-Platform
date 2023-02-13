@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit {
   constructor(
     private headerService: HeaderService,
     private userService: UserService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.headerService.headerChange.subscribe((header) => {

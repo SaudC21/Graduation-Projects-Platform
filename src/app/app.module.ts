@@ -17,6 +17,18 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ArchivedProjectsCardComponent } from './components/archived-projects-card/archived-projects-card.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ProjectsArchiveComponent } from './components/projects-archive/projects-archive.component';
+import { AcademyCardComponent } from './components/academy-card/academy-card.component';
+import { AcademyComponent } from './components/academy/academy.component';
+import { GuidanceSessionComponent } from './components/guidance-session/guidance-session.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { SubmissionComponent } from './components/submission/submission.component';
+import { ProjectRequirementsComponent } from './components/project-requirements/project-requirements.component';
+import { LessonComponent } from './components/lesson/lesson.component';
+import { NotificationListComponent } from './components/notification-list/notification-list.component';
+import { NotificationComponent } from './components/notification/notification.component';
+import { MessageListComponent } from './components/message-list/message-list.component';
+import { MessageComponent } from './components/message/message.component';
+import { SupportComponent } from './components/support/support.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +42,18 @@ import { ProjectsArchiveComponent } from './components/projects-archive/projects
     FooterComponent,
     ArchivedProjectsCardComponent,
     ProjectsArchiveComponent,
+    AcademyCardComponent,
+    AcademyComponent,
+    GuidanceSessionComponent,
+    ProfileComponent,
+    SubmissionComponent,
+    ProjectRequirementsComponent,
+    LessonComponent,
+    NotificationListComponent,
+    NotificationComponent,
+    MessageListComponent,
+    MessageComponent,
+    SupportComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,4 +69,4 @@ import { ProjectsArchiveComponent } from './components/projects-archive/projects
 
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

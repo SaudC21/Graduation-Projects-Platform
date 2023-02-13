@@ -32,6 +32,8 @@ const create = async (req: Request, res: Response) => {
       description: req.body.description,
       repo_link: req.body.repo_link,
       supervisor_id: req.body.supervisor_id,
+      dept: req.body.dept,
+      semester: (req.body.id as string).split('-')[1]
     };
     const projectRecord = await store.insert(project);
     res.send('inshallah its been added');
@@ -42,7 +44,7 @@ const create = async (req: Request, res: Response) => {
 
 const update = async (req: Request, res: Response) => {
   try {
-    const projectRecord = await store.update(req.body, req.params['uid']);
+    const projectRecord = await store.update(req.body.object, req.params['uid'].split(':')[1]);
     res.send('inshallah its been updated');
   } catch (err) {
     res.send(err);
