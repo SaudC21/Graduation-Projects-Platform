@@ -18,8 +18,6 @@ export class SubmissionComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.repoLink);
-
     this.projectService.updateProject({ repo_link: this.repoLink }).then(() => {
       alert('Submission received successfully');
       this.router.navigate(['/main/dashboard']);

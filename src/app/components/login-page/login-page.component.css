@@ -15,11 +15,19 @@ html {
   height: 100vh;
 }
 
+button:disabled {
+  opacity: 0.5;
+}
+button:disabled:hover {
+  background-color: #33b5e5;
+}
+
 h1 {
   padding-bottom: 4%;
 }
 
 label {
+  margin-top: 1vh;
   font-size: 18px;
 }
 
@@ -52,7 +60,6 @@ input[type="password"] {
   text-align: right;
   background-color: #eee;
   border-radius: 15px;
-  margin-bottom: 5.85%;
 }
 
 button {
@@ -66,6 +73,7 @@ button {
   width: 12vw;
   float: right;
   border-radius: 8px;
+  
 }
 
 .register-button {
@@ -134,4 +142,11 @@ footer {
 .fcit {
   text-decoration: none;
   color: black;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 0;
 }

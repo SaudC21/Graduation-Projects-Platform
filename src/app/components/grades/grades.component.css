@@ -1,0 +1,58 @@
+* {
+    text-align: right;
+    font-family: "Noto Kufi Arabic", sans-serif !important;
+    direction: rtl;
+}
+
+.parent {
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    background: #fff;
+    border-radius: 5%;
+    box-shadow: rgba(0, 0, 0, 0.24) 3px 5px 8px;
+}
+
+.heading {
+    text-align: right;
+    font-size: 2em;
+    font-weight: 900;
+    margin: 0;
+    padding-bottom: 1vh;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.24);
+}
+
+table.table {
+    border: 1px solid #000000;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+table.table td,
+table.table th {
+    text-align: center;
+    border: 1px solid #000000;
+    padding: 1vh 0;
+}
+
+.icon-container {
+    text-align: center;
+}
+
+.icon-container img {
+    background-color: rgba(255, 71, 71, 0.25);
+    max-width: 5%;
+    max-height: 5%;
+    padding: 0.5vh 0.25vw;
+    margin: 1vh 0;
+}
+
+table.table thead {}
+
+table.table thead th {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+}

@@ -14,4 +14,12 @@ export class SupervisorService {
       `${environment.BACKEND_URL}${environment.PORT}/supervisor`
     ).toPromise();
   }
+
+  async getSupervisor(id: string): Promise<any> {
+    const data = await this.http.get<any>(
+      `${environment.BACKEND_URL}${environment.PORT}/supervisor/${id}`
+    ).toPromise();
+    return data;
+    
+  }
 }

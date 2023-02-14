@@ -29,6 +29,8 @@ import { NotificationComponent } from './components/notification/notification.co
 import { MessageListComponent } from './components/message-list/message-list.component';
 import { MessageComponent } from './components/message/message.component';
 import { SupportComponent } from './components/support/support.component';
+import { ViewProjectComponent } from './components/view-project/view-project.component';
+import { GradesComponent } from './components/grades/grades.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { SupportComponent } from './components/support/support.component';
     MessageListComponent,
     MessageComponent,
     SupportComponent,
+    ViewProjectComponent,
+    GradesComponent,
   ],
   imports: [
     BrowserModule,

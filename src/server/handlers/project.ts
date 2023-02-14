@@ -16,8 +16,9 @@ const show = async (req: Request, res: Response) => {
 
 const index = async (req: Request, res: Response) => {
   try {
-    const uid = parseInt(req.params['uid']);
-    const projectRecord = await store.index(uid);
+    const groupId = req.params['uid'].split(':')[1];
+
+    const projectRecord = await store.index(groupId);
     res.send(projectRecord);
   } catch (err) {
     res.send(err);

@@ -3,7 +3,7 @@ export interface Project {
     title: string;
     description: string;
     repo_link: string;
-    supervisor_id: number;
+    supervisor_id: string;
     dept: string;
     semester: string;
 }
@@ -14,7 +14,7 @@ export class Project implements Project {
         this.title = '';
         this.description = '';
         this.repo_link = '';
-        this.supervisor_id = 0;
+        this.supervisor_id = '';
         this.dept = '';
         this.semester = '';
     }

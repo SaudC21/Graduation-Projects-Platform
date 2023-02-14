@@ -22,20 +22,12 @@ export class RegisterPageComponent {
 
   }
 
-  change(event: any) {
-    console.log(event);
-    console.log(this.user.major);
-  }
-
   onRegister() {
-    console.log('onregister');
     if (this.user.password_digest != this.pwConfirmation) {
       alert(`Please make sure the passwords match`);
       return;
       // TODO: Display error message
     }
-    console.log(`onRegister() called`);
-    console.log(this.user);
     this.authService.register(this.user, 'student');
   }
 }

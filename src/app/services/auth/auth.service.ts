@@ -13,13 +13,9 @@ export class AuthService {
     private router: Router,
     private http: HttpClient,
     private userService: UserService
-  ) {}
+  ) { }
 
   async authenticate(uid: string, password: string, userType: string) {
-    console.log(`authenticate mthod: `, uid, password, userType);
-    console.log(
-      `${environment.BACKEND_URL}${environment.PORT}/${userType}/authenticate`
-    );
     this.http
       .post(
         `${environment.BACKEND_URL}${environment.PORT}/${userType}/authenticate`,
@@ -34,17 +30,15 @@ export class AuthService {
         console.log(e);
         // TODO: Display error message
         if (e.status === 401) {
+          alert('Incorrect username or password, please try again');
           return 'invalid password';
         }
         return null;
       })
       .then((response: any) => {
-        console.log(response);
         if (response == 'invalid password') {
-          console.log(`36`);
           return;
         } else if (response == 'invalid token') {
-          console.log(`39`);
           return 'invalid token';
         } else {
           const expiresAt = moment().add(
@@ -66,7 +60,6 @@ export class AuthService {
             `${environment.BACKEND_URL}${environment.PORT}/${userType}/${uid}`
           )
           .subscribe((res: any) => {
-            console.log(res);
             this.userService.setUser(res);
           });
       });
@@ -88,8 +81,6 @@ export class AuthService {
   getExpiration() {
     const expiration: any = localStorage.getItem('expiresAt');
     const expiresAt = JSON.parse(expiration);
-    console.log(expiresAt);
-
     return moment(expiresAt);
   }
 
@@ -98,13 +89,10 @@ export class AuthService {
   }
 
   routeAuth() {
-    console.log(`test`);
     this.router.navigate(['/login']);
   }
 
   async register(record: any, userType: string) {
-    console.log(record);
-    console.log('auth register method called');
     await this.http
       .post(
         `${environment.BACKEND_URL}${environment.PORT}/${userType}`,
@@ -121,7 +109,6 @@ export class AuthService {
       )
       .toPromise()
       .then((res) => {
-        console.log(res);
         alert(`You have been registered, please login with your credentials`);
         this.routeAuth();
       });

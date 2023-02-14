@@ -21,24 +21,23 @@
             <div class="icon-box">
                 <img src="../../../assets/media/icons/mortarboard.png">
                 <p class="icon-title">القسم:</p>
-                <p class="icon-info">تقنية المعلومات</p>
+                <p class="icon-info">{{project.dept}}</p>
             </div>
             <div class="icon-box">
                 <img src="../../../assets/media/icons/project-management.png">
                 <p class="icon-title">المشروع:</p>
-                <p class="icon-info">Graduation Projects Platform</p>
+                <p class="icon-info">{{project.title}}</p>
             </div>
             <div class="icon-box">
                 <img class="professor" src="../../../assets/media/icons/professor.png">
                 <p class="icon-title">المشرف:</p>
-                <p class="icon-info">د. رائد الغامدي</p>
+                <p class="icon-info">{{supervisor?.first_name}} {{supervisor?.last_name}}</p>
             </div>
             <div class="icon-box">
                 <img src="../../../assets/media/icons/group.png">
                 <p class="icon-title">المجموعة:</p>
                 <ul class="icon-info">
-                    <li>سعود حسن السليماني</li>
-                    <li>عبدالرحمن منصور العصيمي</li>
+                    <li *ngFor="let student of students">{{student.first_name}} {{student.last_name}}</li>
                 </ul>
             </div>
         </div>

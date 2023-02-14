@@ -25,8 +25,6 @@ export class GuidanceSessionComponent implements OnInit {
   ngOnInit() {
     this.headerService.setHeader('طلب جلسة توجيه');
     this.supervisorService.getSupervisors().then(data => {
-      console.log(data);
-
       this.supervisors = data;
     });
 
@@ -35,7 +33,6 @@ export class GuidanceSessionComponent implements OnInit {
   change(event: any) {
     for (let i = 0; i < this.supervisors.length; i++) {
       if (this.supervisors[i].uid == event) {
-        console.log(this.supervisors[i]);
         this.supervisor = this.supervisors[i];
       }
     }

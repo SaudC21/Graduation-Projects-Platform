@@ -15,6 +15,8 @@ import { NotificationComponent } from '../notification/notification.component';
 import { MessageListComponent } from '../message-list/message-list.component';
 import { MessageComponent } from '../message/message.component';
 import { SupportComponent } from '../support/support.component';
+import { ViewProjectComponent } from '../view-project/view-project.component';
+import { GradesComponent } from '../grades/grades.component';
 
 // Add components here to enable main routing
 const routes: Routes = [
@@ -82,6 +84,14 @@ const routes: Routes = [
       {
         path: 'support',
         component: SupportComponent,
+      },
+      {
+        path: 'view-project',
+        component: ViewProjectComponent,
+      },
+      {
+        path: 'grades',
+        component: GradesComponent,
       }
     ],
   },

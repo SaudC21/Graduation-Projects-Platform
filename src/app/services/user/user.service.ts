@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Student } from '../../models/student';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +10,8 @@ import { Student } from '../../models/student';
 export class UserService {
   user: Student = new Student();
   userChange: Subject<Student> = new Subject<Student>();
-  constructor() {
+
+  constructor(private http: HttpClient) {
     this.userChange.subscribe((user) => {
       this.user = user;
     });
@@ -22,7 +25,14 @@ export class UserService {
     return this.user;
   }
 
-  getGroupID(){
+  getGroupID() {
     return this.user.group_id;
+  }
+
+  async getStudentsByGroup(): Promise<Student[]> {
+    const data = await this.http.get<any>(
+      `${environment.BACKEND_URL}${environment.PORT}/student/group/${this.user.group_id}`
+    ).toPromise();
+    return data
   }
 }

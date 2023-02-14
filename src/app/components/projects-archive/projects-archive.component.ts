@@ -36,8 +36,4 @@ export class ProjectsArchiveComponent implements OnInit {
       console.log(err);
     }
   }
-
-  test() {
-    console.log(this.projects);
-  }
 }

@@ -4,17 +4,20 @@
         <img id="logo" src="../../../assets/media/dark-logo.png" alt="FCIT Logo">
         <!-- <div class="login-form"> -->
         <div class="form-container">
-            <form class="form">
+            <form #form="ngForm" class="form">
                 <div class="form-div">
                     <h1>منصة مشاريع التخرج</h1>
                     <label for="uname" class="label"><b>الرقم الجامعي</b></label>
-                    <input type="text" placeholder="ادخل الرقم الجامعي" name="uname" required [(ngModel)]="uid">
+                    <input #uidInput="ngModel" type="text" placeholder="ادخل الرقم الجامعي" name="uname" required [(ngModel)]="uid" (keypress)="keyPressNumbers($event)">
+                    <p class="error" *ngIf="uidInput.dirty && uid.length != 7">الرجاء ادخال رقم صحيح</p>
                     <label for="psw" class="label"><b>كلمة المرور</b></label>
                     <a href="" class="pass-reset">هل نسيت كلمة المرور؟</a>
-                    <input type="password" placeholder="ادخل كلمة المرور" name="psw" required [(ngModel)]="password">
+                    <input #passInput="ngModel" type="password" placeholder="ادخل كلمة المرور" name="psw" required [(ngModel)]="password">
+                    <p class="error" *ngIf="passInput.dirty && password.length < 4">Invalid student id, please enter valid id</p>
+                    <!-- <p class="error" *ngIf -->
                     <div class="button-box">
                         <button class="register-button" type="button" routerLink="/register">إنشاء حساب</button>
-                        <button class="login-button" type="button" (click)="onLogin()">تسجيل الدخول</button>
+                        <button [disabled]="form.invalid" class="login-button" type="button" (click)="onLogin()">تسجيل الدخول</button>
                     </div>
                 </div>
             </form>

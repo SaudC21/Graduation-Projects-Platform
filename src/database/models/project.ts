@@ -15,9 +15,11 @@ export class ProjectStore {
     return await projectModel.find();
   }
 
-  async index(uid: Number) {
+  async index(groupId: string) {
     await this.connect();
-    return await projectModel.findOne({ uid: uid });
+    const data = await projectModel.findOne({ id: groupId });
+    return data;
+
   }
 
   async insert(record: Project) {
@@ -34,7 +36,7 @@ export class ProjectStore {
     });
   }
 
-  async update(record: object, uid: string) {    
+  async update(record: object, uid: string) {
     await this.connect();
     return await projectModel.findOneAndUpdate({ uid: uid }, record);
   }

@@ -6,7 +6,7 @@ export interface Project {
    title: string;
    description: string;
    repo_link: string;
-   supervisor_id: number;
+   supervisor_id: string;
    dept: string;
    semester: string;
 }
@@ -17,7 +17,7 @@ export const projectSchema = new Schema<Project>({
    title: { type: String, required: true },
    description: { type: String, required: true },
    repo_link: { type: String, required: true },
-   supervisor_id: { type: Number, required: true },
+   supervisor_id: { type: String, required: true },
    dept: { type: String, required: true },
    semester: { type: String, required: true}
 });

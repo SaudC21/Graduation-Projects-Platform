@@ -30,6 +30,16 @@ const index = async (req: Request, res: Response) => {
   }
 };
 
+const groupShow = async (req: Request, res: Response) => {
+  try {
+    const groupId = req.params['id'];
+    const students = await store.groupShow(groupId);
+    res.send(students);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
 const create = async (req: Request, res: Response) => {
   console.log(req.body);
   try {
@@ -51,8 +61,6 @@ const create = async (req: Request, res: Response) => {
 };
 
 const authenticate = async (req: Request, res: Response) => {
-  console.log('here');
-  console.log(req.body);
   try {
     await store.authenticate(parseInt(req.body.uid), req.body.password, res);
   } catch (err) {
@@ -105,4 +113,5 @@ export const studentRoutes = (app: Application) => {
   app.delete('/student/:uid', destory);
   app.get('/student', show);
   app.get('/student/:uid', verifyAuthToken, index);
+  app.get('/student/group/:id', groupShow)
 };

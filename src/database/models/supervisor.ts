@@ -15,7 +15,7 @@ export class SupervisorStore {
       return await supervisorModel.find();
    }
 
-   async index(uid: Number) {
+   async index(uid: string) {
       await this.connect();
       return await supervisorModel.findOne({ uid: uid });
    }
