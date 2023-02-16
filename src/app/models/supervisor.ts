@@ -1,4 +1,4 @@
-export interface User {
+export interface Supervisor {
     uid: string;
     first_name: string;
     last_name: string;
@@ -6,9 +6,10 @@ export interface User {
     password_digest: string;
     phone_number: string;
     major: string;
+    interests: string[];
  }
 
- export class User implements User{
+ export class Supervisor implements Supervisor{
     constructor(){
         this.uid = '';
         this.first_name = '';
@@ -17,5 +18,6 @@ export interface User {
         this.password_digest = '';
         this.phone_number = '';
         this.major = '';
+        this.interests = [];
     }
  }

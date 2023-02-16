@@ -1,0 +1,94 @@
+* {
+  text-align: right;
+  font-family: "Noto Kufi Arabic", sans-serif !important;
+  direction: rtl;
+}
+
+a {
+  text-decoration: none;
+  color: initial;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1vh;
+  max-height: 32vh;
+  width: 15vw;
+  border-radius: 8vw 8vw 3vw 3vw;
+  box-shadow: 1px 0px 8px #aaa;
+}
+
+.card-info {
+  display: flex;
+  align-items: center;
+  column-gap: 1vw;
+}
+
+.project-image {
+  background-color: #b7d180;
+  height: 28vh;
+  max-width: 100%;
+  border-radius: 4vw 4vw 0vw 0vw;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.project-image img {
+  padding: 1vh 0;
+}
+
+.project-name h1 {
+  margin: 0;
+  font-weight: 700;
+  word-wrap: normal;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.label {
+  font-size: 1em;
+  font-weight: 600;
+  padding-right: 1vw;
+}
+
+.section,
+.semester {
+  font-weight: 600;
+  color: white;
+  padding: 0.2vh 0.5vw;
+  border-radius: 8px;
+  height: 50%;
+  text-align: center;
+}
+
+.section {
+  background-color: #3699ff;
+}
+
+.section h3,
+.semester h3 {
+  margin: 0;
+  font-size: 0.55vw;
+}
+
+.semester {
+  background-color: #ffa800;
+}
+
+.view {
+  background-color: #1bc5bd;
+  height: 9vh;
+  max-width: 100%;
+  border-radius: 8vw 8vw 0vw 0vw;
+  overflow: hidden;
+  border-radius: 0 0 3vw 3vw;
+  font-size: 1em;
+  color: #fff !important;
+  font-weight: 700;
+  text-align: center !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

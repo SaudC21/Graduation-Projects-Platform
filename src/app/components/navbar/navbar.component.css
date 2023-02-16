@@ -49,6 +49,7 @@
 
 .page-title {
    margin-right: 1vw;
+   margin-top: 1vh;
 }
 
 .welcome-message {
@@ -62,10 +63,11 @@
    background-color: #FF4747;
    border-radius: 50%;
    display: inline-block;
+   font-size: 12px;
    text-align: center;
    vertical-align: middle;
    color: #fff;
-   margin: 0 1vw 0 1vw;
+   margin: -0.3vh 1vw 0 1vw;
 }
 
 .item-icon {

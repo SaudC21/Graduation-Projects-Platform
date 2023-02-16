@@ -1,0 +1,17 @@
+<div class="parent">
+   <h1 class="heading">طلب دعم فني</h1>
+   <div class="form">
+       <div class="faculty-input">
+           <h2 class="subheading faculty-label">الموضوع</h2>
+           <div class="input-faculty">
+            <input type="text" name="subject" class="subject" [(ngModel)]="subject">
+           </div>
+       </div>
+       <div class="body-input">
+           <h2 class="text-box subheading">محتوى الرسالة:</h2>
+           <textarea name="body" class="body" placeholder="اكتب هنا..." cols="1" rows="5">
+       </textarea>
+       </div>
+       <a type="submit" class="submit" href="mailto:{{ email }}?subject={{ subject }}&body={{ content }}">إرسال الطلب</a>
+      </div>
+</div>

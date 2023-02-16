@@ -1,0 +1,27 @@
+<div class="parent">
+   <h1 class="heading">طلب جلسة توجيه</h1>
+   <div class="form">
+      <div class="faculty-input">
+         <h2 class="subheading faculty-label">المشرف المطلوب:</h2>
+         <div class="input-faculty">
+            <select class="faculty" id="faculty" #selected (change)="change(selected.value)">
+               <option *ngFor="let user of supervisors" [value]="user.uid">
+                  {{ user.first_name }} {{ user.last_name }}
+               </option>
+            </select>
+         </div>
+      </div>
+      <div class="subject-input">
+         <h2 class="subheading subject-label">الموضوع:</h2>
+         <div class="input-subject">
+            <input type="text" name="subject" class="subject" [(ngModel)]="subject" />
+         </div>
+      </div>
+      <div class="body-input">
+         <h2 class="text-box subheading">محتوى الرسالة:</h2>
+         <textarea name="body" class="body" placeholder="اكتب هنا..." cols="1" rows="5" [(ngModel)]="content">
+         </textarea>
+      </div>
+      <a type="submit" class="submit" href="mailto:{{ email }}?subject={{ subject }}&body={{ content }}">إرسال الطلب</a>
+   </div>
+</div>

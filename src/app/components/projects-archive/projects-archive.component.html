@@ -1,1 +1,18 @@
-<p>projects-archive works!</p>
+<div class="parent">
+  <div class="top-section">
+    <h1 class="heading">أرشيف مشاريع التخرّج</h1>
+    <input class="searchbar" type="text" placeholder="ابحث هنا..." />
+  </div>
+  <div class="projects-archive">
+    <div class="projects-row" *ngFor="let i of [].constructor(rowCount)">
+      <app-archived-projects-card
+        class="card"
+        *ngFor="let i of [1,2,3,4]"
+        [project]="projects.pop()"
+      ></app-archived-projects-card>
+    </div>
+    <!-- <div class="projects-row">
+            <app-archived-projects-card class="card" *ngFor="let i of [1,2,3,4]"></app-archived-projects-card>
+        </div> -->
+  </div>
+</div>

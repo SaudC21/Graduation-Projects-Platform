@@ -29,7 +29,6 @@ export class LoginPageComponent implements OnInit {
       console.log(`only numbers are allowed`);
       return;
     } else {
-      console.log(`login component ts: `, this.uid, this.password);
       await this.authService.authenticate(this.uid, this.password, 'student');
     }
   }
@@ -40,5 +39,16 @@ export class LoginPageComponent implements OnInit {
 
   routeLogin() {
     this.router.navigate(['/main']);
+  }
+
+  keyPressNumbers(event: any) {
+    var charCode = (event.which) ? event.which : event.keyCode;
+    // Only Numbers 0-9
+    if ((charCode < 48 || charCode > 57)) {
+      event.preventDefault();
+      return false;
+    } else {
+      return true;
+    }
   }
 }

@@ -47,10 +47,14 @@ export class StudentStore {
   async index(uid: Number) {
     await this.connect();
     const student = await studentModel.findOne({ uid: uid });
-    if (student != null) {
-      student.password_digest = '';
-    }
     return student;
+  }
+
+  async groupShow(groupId: string) {
+    await this.connect();
+    const students = await studentModel.find({ group_id: groupId });
+    
+    return students;
   }
 
   async insert(record: Student): Promise<any> {

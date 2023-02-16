@@ -2,7 +2,7 @@ import { Schema, Types } from 'mongoose';
 
 // Create an interface representing a document in MongoDB
 export interface Supervisor {
-   uid: number;
+   uid: string;
    first_name: string;
    last_name: string;
    email: string;
@@ -14,7 +14,7 @@ export interface Supervisor {
 
 // Create a Schema corresponding to the document interface
 export const supervisorSchema = new Schema<Supervisor>({
-   uid: { type: Number, required: true },
+   uid: { type: String, required: true },
    first_name: { type: String, required: true },
    last_name: { type: String, required: true },
    email: { type: String, required: true },

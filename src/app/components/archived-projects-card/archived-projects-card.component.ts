@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
+import { Project } from '../../models/project';
+import { Input } from '@angular/core'
 
 @Component({
   selector: 'app-archived-projects-card',
@@ -8,5 +10,6 @@ import { MatCardModule } from '@angular/material/card';
 })
 
 export class ArchivedProjectsCardComponent {
+  @Input() project: any = new Project();
 
 }

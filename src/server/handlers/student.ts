@@ -1,21 +1,19 @@
 import { NextFunction, Request, Response, Application } from 'express';
-import * as expressJWT from 'express-jwt';
 // @ts-ignore
 import * as dotenv from 'dotenv';
 import { StudentStore } from '../../database/models/student';
 import { Student } from '../../database/Schema/student';
+import * as jwt from 'jsonwebtoken';
 
 const store = new StudentStore();
 const TOKEN_SECRET: any = process.env['TOKEN_SECRET'];
 
-const isAuthenticated = expressJWT.expressjwt({
-  secret: TOKEN_SECRET,
-  algorithms: ['HS256'],
-});
-
 const show = async (req: Request, res: Response) => {
   try {
-    const studentRecord = await store.show();
+    const studentRecord: any = await store.show();
+    if (studentRecord) {
+      studentRecord.password_digest = '';
+    }
     res.send(studentRecord);
   } catch (err) {
     res.send(err);
@@ -27,6 +25,16 @@ const index = async (req: Request, res: Response) => {
     const uid = parseInt(req.params['uid']);
     const studentRecord = await store.index(uid);
     res.send(studentRecord);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
+const groupShow = async (req: Request, res: Response) => {
+  try {
+    const groupId = req.params['id'];
+    const students = await store.groupShow(groupId);
+    res.send(students);
   } catch (err) {
     res.send(err);
   }
@@ -53,12 +61,24 @@ const create = async (req: Request, res: Response) => {
 };
 
 const authenticate = async (req: Request, res: Response) => {
-  console.log('here');
-  console.log(req.body);
   try {
     await store.authenticate(parseInt(req.body.uid), req.body.password, res);
   } catch (err) {
     res.send(err);
+  }
+};
+
+const verifyAuthToken = (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const token = req.headers.authorization as string;
+    jwt.verify(token, process.env['TOKEN_SECRET'] as string);
+
+    next();
+  } catch (err) {
+    console.log(`Invalid authentication: ${err}`);
+
+    res.status(401);
+    res.json(`Invalid token: ${err}`);
   }
 };
 
@@ -92,5 +112,6 @@ export const studentRoutes = (app: Application) => {
   app.put('/student/:uid', update);
   app.delete('/student/:uid', destory);
   app.get('/student', show);
-  app.get('/student/:uid', index);
+  app.get('/student/:uid', verifyAuthToken, index);
+  app.get('/student/group/:id', groupShow)
 };

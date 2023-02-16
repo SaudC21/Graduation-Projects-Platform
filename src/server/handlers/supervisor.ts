@@ -6,14 +6,17 @@ const store = new SupervisorStore();
 
 const show = async (req: Request, res: Response) => {
    try {
-      const supervisorRecord = await store.show();
-      res.send(supervisorRecord);
+      const supervisorRecords = await store.show();
+      for (let i = 0; i < supervisorRecords.length; i++) {
+         supervisorRecords[i].password_digest = '';
+      }
+      res.send(supervisorRecords);
    } catch (err) { res.send(err) }
 }
 
 const index = async (req: Request, res: Response) => {
    try {
-      const uid = parseInt(req.params['uid']);
+      const uid = req.params['uid'];
       const supervisorRecord = await store.index(uid);
       res.send(supervisorRecord);
    } catch (err) { res.send(err) }
