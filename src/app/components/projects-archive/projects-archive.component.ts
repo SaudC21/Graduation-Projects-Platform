@@ -11,6 +11,7 @@ import { Project } from '../../models/project';
 export class ProjectsArchiveComponent implements OnInit {
   projects: Project[] = [];
   rowCount = 0;
+  searchText: string = '';
 
   constructor(
     private headerService: HeaderService,
@@ -35,5 +36,10 @@ export class ProjectsArchiveComponent implements OnInit {
     } catch (err) {
       console.log(err);
     }
+  }
+
+  onSearchTextEntered(searchValue: string) {
+    this.searchText = searchValue;
+    console.log(this.searchText);
   }
 }

@@ -1,5 +1,6 @@
 import { model, connect } from 'mongoose';
 import { projectSchema, Project } from '../Schema/project';
+import keyword_extractor from 'keyword-extractor';
 
 // Create a Model
 export const projectModel = model<Project>('projects', projectSchema);
@@ -22,8 +23,28 @@ export class ProjectStore {
 
   }
 
+  getKeywords(description: string) {
+    console.log(`here`);
+    console.log(description);
+    try{
+    let keywords = keyword_extractor.extract(description, {
+      return_changed_case: true,
+      remove_duplicates: true,
+    }).forEach(keyword => {
+      console.log(keyword);
+      
+    });
+    console.log(keywords);
+  }catch (e) {
+
+console.log(e);
+  }
+
+  }
+
   async insert(record: Project) {
     await this.connect();
+    this.getKeywords(record.description);
     const project = new projectModel(record);
 
     await project.save(function (err) {
@@ -34,21 +55,37 @@ export class ProjectStore {
       console.log(`${project.title} was saved to the database!`);
       return project;
     });
+    console.log(`here?`);
+
   }
 
-  async update(record: object, uid: string) {
+  async update(record: object, id: string) {
     await this.connect();
-    return await projectModel.findOneAndUpdate({ uid: uid }, record);
+    console.log(`id: `, id);
+    console.log('record: ', record);
+
+    try {
+      const data = await projectModel.findOneAndUpdate({ id: id }, record, { new: true }).clone().catch(err => {
+        console.log(err);
+        return err;
+
+      });
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+      return err;
+
+    }
   }
 
-  async delete(uid: number) {
+  async delete(id: string) {
     await this.connect();
 
-    projectModel.find({ uid: uid }).deleteOne(() => {
-      console.log(`deleting ${uid}`);
-      return `${uid} was deleted`;
+    projectModel.find({ id: id }).deleteOne(() => {
+      console.log(`deleting ${id}`);
+      return `${id} was deleted`;
     });
 
-    return `There was an issue deleting ${uid}`;
+    return `There was an issue deleting ${id}`;
   }
 }

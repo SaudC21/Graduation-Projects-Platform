@@ -1,71 +1,65 @@
 <div class="parent">
-   <div class="project-info">
-       <div class="right-section">
-           <img class="project-image" src="../../../assets/media/fcit-logo.svg">
-           <p class="name">إسم المشروع: <br><br><span class="project-name">Graduation Projects Platform</span></p>
-       </div>
-       <div class="left-section">
-           <p class="label department-label">القسم:</p>
-           <p class="department">تقنية المعلومات</p>
-           <p class="label level-label">المستوى:</p>
-           <p class="level">CPIT-499</p>
-           <p class="label semester-label">الفصل:</p>
-           <p class="semester">202302</p>
-       </div>
-   </div>
-   <div class="heading info-heading">تفاصيل المشروع</div>
-   <div class="info-section">
-       <div class="description">
-           <p class="subheading">وصف المشروع:</p>
-           <p class="project-description">A Web Portal to manage graduation projects at FCIT & improve communication between students, faculty & all other associated staff (if any) & increase automation</p>
-       </div>
-       <div class="keywords">
-           <p class="subheading">الكلمات المفتاحية:</p>
-           <div class="keyword-box">
-               <div class="keyword">Project Management</div>
-               <div class="keyword">Web Development</div>
-               <div class="keyword">Web App</div>
-               <div class="keyword">PostgreSQL</div>
-               <div class="keyword">Node.js</div>
-           </div>
-       </div>
-       <div class="sources">
-           <p class="subheading">روابط المشروع</p>
-           <div class="button github">ملفات البرنامج</div>
-           <div class="button poster">المنشور البحثي</div>
-       </div>
-   </div>
-   <div class="heading member-heading">فريق العمل</div>
-   <div class="member-list">
-       <p class="subheading">المشرف:</p>
-       <div class="member-widget">
-           <div class="member-info">
-               <img class="pfp" src="../../../assets/media/Faisal.jpg">
-               <p class="member-name">د. رائد الغامدي</p>
-           </div>
-           <div class="contact">تواصل</div>
-       </div>
-       <p class="subheading">الطلاب:</p>
-       <div class="member-widget">
-           <div class="member-info">
-               <img class="pfp" src="../../../assets/media/Faisal.jpg">
-               <p class="member-name">فيصل الشهري</p>
-           </div>
-           <div class="view-profile">عرض</div>
-       </div>
-       <div class="member-widget">
-           <div class="member-info">
-               <img class="pfp" src="../../../assets/media/Faisal.jpg">
-               <p class="member-name">سعود السليماني</p>
-           </div>
-           <div class="view-profile">عرض</div>
-       </div>
-       <div class="member-widget">
-           <div class="member-info">
-               <img class="pfp" src="../../../assets/media/Faisal.jpg">
-               <p class="member-name">عبدالرحمن العصيمي</p>
-           </div>
-           <div class="view-profile">عرض</div>
-       </div>
-   </div>
+  <div class="project-info">
+    <div class="right-section">
+      <img class="project-image" src="../../../assets/media/fcit-logo.svg" />
+      <p class="name">
+        إسم المشروع: <br /><br /><span class="project-name">{{
+          project.title
+        }}</span>
+      </p>
+    </div>
+    <div class="left-section">
+      <p class="label department-label">القسم:</p>
+      <p class="department">{{ project.dept }}</p>
+      <p class="label level-label">المستوى:</p>
+      <p class="level">CPIT-499</p>
+      <p class="label semester-label">الفصل:</p>
+      <p class="semester">{{ project.semester }}</p>
+    </div>
+  </div>
+  <div class="heading info-heading">تفاصيل المشروع</div>
+  <div class="info-section">
+    <div class="description">
+      <p class="subheading">وصف المشروع:</p>
+      <p class="project-description">{{ project.description }}</p>
+    </div>
+    <div class="keywords">
+      <p class="subheading">الكلمات المفتاحية:</p>
+      <div class="keyword-box">
+        <div class="keyword">Project Management</div>
+        <div class="keyword">Web Development</div>
+        <div class="keyword">Web App</div>
+        <div class="keyword">PostgreSQL</div>
+        <div class="keyword">Node.js</div>
+      </div>
+    </div>
+    <div class="sources">
+      <p class="subheading">روابط المشروع</p>
+      <a class="button github" href={{project.repo_link}} target="_BLANK">ملفات البرنامج</a>
+      <div class="button poster">المنشور البحثي</div>
+    </div>
+  </div>
+  <div class="heading member-heading">فريق العمل</div>
+  <div class="member-list">
+    <p class="subheading">المشرف:</p>
+    <div class="member-widget">
+      <div class="member-info">
+        <img class="pfp" src="../../../assets/media/Faisal.jpg" />
+        <p class="member-name">
+          {{ supervisor.first_name }} {{ supervisor.last_name }}
+        </p>
+      </div>
+      <div class="contact">تواصل</div>
+    </div>
+    <p class="subheading">الطلاب:</p>
+    <div class="member-widget" *ngFor="let student of groupMembers">
+      <div class="member-info">
+        <img class="pfp" src="../../../assets/media/Faisal.jpg" />
+        <p class="member-name">
+          {{ student.first_name }} {{ student.last_name }}
+        </p>
+      </div>
+      <div class="view-profile">عرض</div>
+    </div>
+  </div>
 </div>
