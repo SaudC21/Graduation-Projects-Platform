@@ -31,6 +31,7 @@ import { MessageComponent } from './components/message/message.component';
 import { SupportComponent } from './components/support/support.component';
 import { ViewProjectComponent } from './components/view-project/view-project.component';
 import { GradesComponent } from './components/grades/grades.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { GradesComponent } from './components/grades/grades.component';
     SupportComponent,
     ViewProjectComponent,
     GradesComponent,
+    SearchBarComponent,
   ],
   imports: [
     BrowserModule,

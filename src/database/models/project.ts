@@ -1,5 +1,6 @@
 import { model, connect } from 'mongoose';
 import { projectSchema, Project } from '../Schema/project';
+import keyword_extractor from 'keyword-extractor';
 
 // Create a Model
 export const projectModel = model<Project>('projects', projectSchema);
@@ -19,7 +20,6 @@ export class ProjectStore {
     await this.connect();
     const data = await projectModel.findOne({ id: groupId });
     return data;
-
   }
 
   async insert(record: Project) {
@@ -31,24 +31,32 @@ export class ProjectStore {
         console.log(err);
         return err;
       }
-      console.log(`${project.title} was saved to the database!`);
       return project;
     });
   }
 
-  async update(record: object, uid: string) {
+  async update(record: any, id: string) {
     await this.connect();
-    return await projectModel.findOneAndUpdate({ uid: uid }, record);
+    record.semester = id.split('-')[1];
+
+    try {
+      const data = await projectModel.findOneAndUpdate({ id: id }, record, { new: true }).clone().catch(err => {
+        console.log(err);
+        return err;
+
+      });
+    } catch (err) {
+      console.log(err);
+      return err;
+    }
   }
 
-  async delete(uid: number) {
+  async delete(id: string) {
     await this.connect();
 
-    projectModel.find({ uid: uid }).deleteOne(() => {
-      console.log(`deleting ${uid}`);
-      return `${uid} was deleted`;
+    projectModel.find({ id: id }).deleteOne(() => {
+      return `${id} was deleted`;
     });
-
-    return `There was an issue deleting ${uid}`;
+    return `There was an issue deleting ${id}`;
   }
 }

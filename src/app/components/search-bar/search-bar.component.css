@@ -1,0 +1,6 @@
+.searchbar {
+   float: left;
+   padding: 0.5vh 5vw;
+   border: 1px solid rgba(0, 0, 0, 0.24);
+   border-radius: 5%;
+ }

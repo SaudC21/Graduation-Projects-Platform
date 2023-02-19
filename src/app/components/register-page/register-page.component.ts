@@ -26,7 +26,6 @@ export class RegisterPageComponent {
     if (this.user.password_digest != this.pwConfirmation) {
       alert(`Please make sure the passwords match`);
       return;
-      // TODO: Display error message
     }
     this.authService.register(this.user, 'student');
   }

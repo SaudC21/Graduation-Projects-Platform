@@ -21,16 +21,7 @@ export class AcademyComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.headerService.setHeader('الأكاديمية الرقمية');
     try {
-      await (
-        await this.projectService.getProjects()
-      ).subscribe(
-        (data) => {
-          this.projects = data;
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
+      await this.projectService.getProjects().then((projects) => {this.projects = projects;});
     } catch (err) {
       console.log(err);
     }

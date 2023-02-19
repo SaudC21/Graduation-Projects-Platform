@@ -29,7 +29,6 @@ export class CoordinatorStore {
             console.log(err);
             return err;
          }
-         console.log(`${coordinator.first_name} ${coordinator.last_name} was saved to the database!`);
          return coordinator;
       });
    }
@@ -43,7 +42,6 @@ export class CoordinatorStore {
       await this.connect();
 
       coordinatorModel.find({ uid: uid }).deleteOne(() => {
-         console.log(`deleting ${uid}`);
          return `${uid} was deleted`;
       });
 

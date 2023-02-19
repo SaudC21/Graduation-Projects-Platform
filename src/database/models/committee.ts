@@ -29,7 +29,6 @@ export class CommitteeStore {
             console.log(err);
             return err;
          }
-         console.log(`${committeeMember.first_name} ${committeeMember.last_name} was saved to the database!`);
          return committeeMember;
       });
    }

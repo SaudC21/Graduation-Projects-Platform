@@ -41,7 +41,6 @@ const groupShow = async (req: Request, res: Response) => {
 };
 
 const create = async (req: Request, res: Response) => {
-  console.log(req.body);
   try {
     const student: Student = {
       uid: req.body.uid,
@@ -72,11 +71,8 @@ const verifyAuthToken = (req: Request, res: Response, next: NextFunction) => {
   try {
     const token = req.headers.authorization as string;
     jwt.verify(token, process.env['TOKEN_SECRET'] as string);
-
     next();
   } catch (err) {
-    console.log(`Invalid authentication: ${err}`);
-
     res.status(401);
     res.json(`Invalid token: ${err}`);
   }
