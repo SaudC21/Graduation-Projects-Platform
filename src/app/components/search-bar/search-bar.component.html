@@ -1,1 +1,1 @@
-<input class="searchbar" type="text" [(ngModel)]="enteredSearchValue" (input)="onSearchValueChange()" placeholder="ابحث هنا..." />
+<input class="searchbar" type="text" [(ngModel)]="enteredSearchValue" (input)="searchValueChange.emit(enteredSearchValue)" placeholder="ابحث هنا..." />

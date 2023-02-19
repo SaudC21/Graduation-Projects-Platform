@@ -28,12 +28,12 @@ const index = async (req: Request, res: Response) => {
 
 const create = async (req: Request, res: Response) => {
   try {
-    console.log(`adding`);
+    // Putting request into project object
     const project: Project = {
       id: req.body.id,
       title: req.body.title,
       description: req.body.description,
-      keywords: keyword_extractor?.extract(req.body.description, {
+      keywords: keyword_extractor?.extract(req.body.description, { // Using library to extract keywords from description
         return_changed_case: true,
         remove_duplicates: true,
       }),
@@ -41,24 +41,20 @@ const create = async (req: Request, res: Response) => {
       supervisor_id: req.body.supervisor_id,
       dept: req.body.dept,
       semester: (req.body.id as string).split('-')[1]
-    };
-    console.log(project);
-    
+    };    
+
+    // Send project object to database model in order to do crud operation
     const projectRecord = await store.insert(project);
-    console.log(projectRecord);
     
+    // Send response back to front-end
     res.send(projectRecord);
-  } catch (err) {
-    console.log(err);
-    
+  } catch (err) {    
     res.send(err);
   }
 };
 
 const update = async (req: Request, res: Response) => {
   try {
-    console.log(`updating`);
-
     const projectRecord = await store.update(req.body, req.params['id']);
     res.send('inshallah its been updated');
   } catch (err) {

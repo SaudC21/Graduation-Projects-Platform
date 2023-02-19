@@ -17,10 +17,13 @@ export class ProjectService {
 
   constructor(private http: HttpClient, private userService: UserService, private supervisorService: SupervisorService) { }
 
-  async getProjects(): Promise<Observable<Project[]>> {
+  async getProjects(): Promise<any> {
     return this.http.get<Project[]>(
       `${environment.BACKEND_URL}${environment.PORT}/project`
-    );
+    ).toPromise().then((data) => {
+      this.projects = data as Project[];
+      return data;
+    });
   }
 
   async getProject(): Promise<any> {
@@ -51,7 +54,6 @@ export class ProjectService {
       { responseType: 'text' as 'json' }
     ).toPromise().then(res => {
       console.log(res);
-
     })
   }
 }

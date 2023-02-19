@@ -28,7 +28,6 @@ export class AuthService {
       .toPromise()
       .catch((e) => {
         console.log(e);
-        // TODO: Display error message
         if (e.status === 401) {
           alert('Incorrect username or password, please try again');
           return 'invalid password';

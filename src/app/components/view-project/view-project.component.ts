@@ -24,26 +24,16 @@ export class ViewProjectComponent implements OnInit {
     this.headerService.setHeader('معلومات المشروع');
     await this.projectService.getProject().then((project: Project) => {
       this.project = project;
-      console.log(project);
-      console.log(this.project);
-
     });
     await this.projectService.getSupervisor().then((supervisor: Supervisor) => {
       this.supervisor = supervisor;
-      console.log(supervisor);
-      console.log(this.supervisor);
-
     }).then(async () => {
       const groupStudents = await this.userService.getStudentsByGroup();
-      console.log(groupStudents);
-      
       for (let student of groupStudents) {
         if (student.uid != this.userService.getUser().uid) {
           this.groupMembers.push(student);
         }
-      }
-      console.log(this.groupMembers);
-      
+      }      
     })
   }
 

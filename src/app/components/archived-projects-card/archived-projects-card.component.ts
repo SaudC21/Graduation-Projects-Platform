@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Project } from '../../models/project';
 import { Input } from '@angular/core'
 
@@ -11,5 +10,15 @@ import { Input } from '@angular/core'
 
 export class ArchivedProjectsCardComponent {
   @Input() project: any = new Project();
+  @Output() increment = new EventEmitter();
+  @Input() count = 0;
+  @Input() projectLength = 0;
 
+  ngOnInit(): void {
+
+  }
+
+  ngAfterContentChecked(): void {
+    this.increment.emit();
+  }
 }

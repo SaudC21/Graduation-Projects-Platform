@@ -31,7 +31,6 @@ export class StudentStore {
           );
           res.status(200).json({ token: token, expiresIn: 60 * 60 * 2 });
         } else {
-          console.log(`wrong password: ${student.password_digest}`);
           res.status(401);
           res.send(`Invalid password`);
         }
@@ -58,7 +57,6 @@ export class StudentStore {
   }
 
   async insert(record: Student): Promise<any> {
-    console.log(record);
     await this.connect();
     const student = new studentModel(record);
     const hash = bcrypt.hashSync(record.password_digest + pepper, saltRounds);
@@ -69,9 +67,7 @@ export class StudentStore {
         console.log(err);
         return err;
       }
-      console.log(
-        `${student.first_name} ${student.last_name} was saved to the database!`
-      );
+      
       return student;
     });
     return new Error(`Student was not added`);
@@ -86,7 +82,6 @@ export class StudentStore {
     await this.connect();
 
     studentModel.find({ uid: uid }).deleteOne(() => {
-      console.log(`deleting ${uid}`);
       return `${uid} was deleted`;
     });
 

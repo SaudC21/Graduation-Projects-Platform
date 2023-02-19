@@ -29,7 +29,6 @@ export class SupervisorStore {
             console.log(err);
             return err;
          }
-         console.log(`${supervisor.first_name} ${supervisor.last_name} was saved to the database!`);
          return supervisor;
       });
    }

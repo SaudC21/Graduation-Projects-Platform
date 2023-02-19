@@ -20,31 +20,10 @@ export class ProjectStore {
     await this.connect();
     const data = await projectModel.findOne({ id: groupId });
     return data;
-
-  }
-
-  getKeywords(description: string) {
-    console.log(`here`);
-    console.log(description);
-    try{
-    let keywords = keyword_extractor.extract(description, {
-      return_changed_case: true,
-      remove_duplicates: true,
-    }).forEach(keyword => {
-      console.log(keyword);
-      
-    });
-    console.log(keywords);
-  }catch (e) {
-
-console.log(e);
-  }
-
   }
 
   async insert(record: Project) {
     await this.connect();
-    this.getKeywords(record.description);
     const project = new projectModel(record);
 
     await project.save(function (err) {
@@ -52,17 +31,13 @@ console.log(e);
         console.log(err);
         return err;
       }
-      console.log(`${project.title} was saved to the database!`);
       return project;
     });
-    console.log(`here?`);
-
   }
 
-  async update(record: object, id: string) {
+  async update(record: any, id: string) {
     await this.connect();
-    console.log(`id: `, id);
-    console.log('record: ', record);
+    record.semester = id.split('-')[1];
 
     try {
       const data = await projectModel.findOneAndUpdate({ id: id }, record, { new: true }).clone().catch(err => {
@@ -70,11 +45,9 @@ console.log(e);
         return err;
 
       });
-      console.log(data);
     } catch (err) {
       console.log(err);
       return err;
-
     }
   }
 
@@ -82,10 +55,8 @@ console.log(e);
     await this.connect();
 
     projectModel.find({ id: id }).deleteOne(() => {
-      console.log(`deleting ${id}`);
       return `${id} was deleted`;
     });
-
     return `There was an issue deleting ${id}`;
   }
 }

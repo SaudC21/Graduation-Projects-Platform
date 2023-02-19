@@ -10,8 +10,12 @@ import { Project } from '../../models/project';
 })
 export class ProjectsArchiveComponent implements OnInit {
   projects: Project[] = [];
+  searchedProjects: Project[] = [];
   rowCount = 0;
   searchText: string = '';
+  projectCount = 0;
+  rowArray = [0, 1, 2, 3];
+  length = 0;
 
   constructor(
     private headerService: HeaderService,
@@ -21,25 +25,37 @@ export class ProjectsArchiveComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.headerService.setHeader('أرشيف مشاريع التخرج');
     try {
-      await (
-        await this.projectService.getProjects()
-      ).subscribe(
-        (data) => {
-          this.projects = data;
-          this.rowCount = parseInt((this.projects.length / 4) as unknown as string);
-
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
+      await this.projectService.getProjects().then((projects) => {
+        this.projects = projects;
+        this.rowCount = parseInt(
+          (this.projects.length / 4) as unknown as string
+        );
+        this.searchedProjects = this.projects;
+        length = this.searchedProjects.length;
+      });
     } catch (err) {
       console.log(err);
     }
   }
 
-  onSearchTextEntered(searchValue: string) {
+  onSearchTextEntered(searchValue: any) {
+    this.length = this.searchedProjects.length;
+    this.searchedProjects = [];
     this.searchText = searchValue;
-    console.log(this.searchText);
+    if (!searchValue || searchValue == '') {
+      this.searchedProjects = this.projects;
+      return;
+    }
+
+    for (let i = 0; i < this.projects.length; i++) {
+      if (this.projects[i].title.toLowerCase().includes(searchValue.toLowerCase())) {
+        this.searchedProjects.push(this.projects[i]);
+        continue;
+      } else {
+        this.searchedProjects.splice(i, 1);
+      }
+    }
+    console.log(`searched projects; `, this.searchedProjects);
+    this.length = this.searchedProjects.length;
   }
 }

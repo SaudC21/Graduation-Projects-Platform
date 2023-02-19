@@ -25,8 +25,6 @@ export class LoginPageComponent implements OnInit {
 
   async onLogin() {
     if (isNaN(parseInt(this.uid))) {
-      // TODO: Display error message
-      console.log(`only numbers are allowed`);
       return;
     } else {
       await this.authService.authenticate(this.uid, this.password, 'student');
