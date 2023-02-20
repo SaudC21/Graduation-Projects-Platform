@@ -30,7 +30,7 @@ export class ProjectService {
     let groupId = this.userService.getGroupID();
 
 
-    return await this.http.get<Project>(`${environment.BACKEND_URL}${environment.PORT}/project/:${groupId}`).toPromise().then(data => {
+    return await this.http.get<Project>(`${environment.BACKEND_URL}${environment.PORT}/project/${groupId}`).toPromise().then(data => {
       return data;
     });
   }

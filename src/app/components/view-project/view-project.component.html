@@ -26,11 +26,7 @@
     <div class="keywords">
       <p class="subheading">الكلمات المفتاحية:</p>
       <div class="keyword-box">
-        <div class="keyword">Project Management</div>
-        <div class="keyword">Web Development</div>
-        <div class="keyword">Web App</div>
-        <div class="keyword">PostgreSQL</div>
-        <div class="keyword">Node.js</div>
+        <div class="keyword" *ngFor="let i of [0,1,2,3,4]">{{project.keywords[i]}}</div>
       </div>
     </div>
     <div class="sources">
