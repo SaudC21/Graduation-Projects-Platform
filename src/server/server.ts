@@ -34,7 +34,7 @@ projectRoutes(app);
 
 app.get('/', async (req: express.Request, res: express.Response) => {
   res.send(
-    'Use committee, student, supervisor, project, or coordinator routes with any of the CRUD operations (Get, Put, Delte, Show, and Index)'
+    'Use committee, student, supervisor, project, or coordinator routes with any of the CRUD operations (Get, Put, Delete, Show, and Index)'
   );
 });
 
